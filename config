@@ -1,0 +1,111 @@
+# ----- AutoStart ------
+exec xmodmap ~/keybinds.txt
+
+
+
+set $mod Control
+
+font pango:monospace 8
+
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec gnome-terminal --working-directory="`xcwd`"
+
+# kill focused window
+bindsym $mod+w kill
+
+# start dmenu (a program launcher)
+# bindsym $mod+d exec dmenu_run
+# There also is the (new) i3-dmenu-desktop which only displays applications
+# shipping a .desktop file. It is a wrapper around dmenu, so you need that
+# installed.
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Mod3+h move left
+bindsym $mod+Mod3+j move down
+bindsym $mod+Mod3+k move up
+bindsym $mod+Mod3+l move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Mod3+Left move left
+bindsym $mod+Mod3+Down move down
+bindsym $mod+Mod3+Up move up
+bindsym $mod+Mod3+Right move right
+
+# split in horizontal orientation
+# bindsym $mod+h split h
+
+# split in vertical orientation
+# bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+# bindsym $mod+f fullscreen
+
+# change container layout (stacked, tabbed, toggle split)
+# bindsym $mod+s layout stacking
+# bindsym $mod+w layout tabbed
+# bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+#bindsym $mod+Mod3+space floating toggle
+
+# change focus between tiling / floating windows
+#bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+#bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# move focused container to workspace
+bindsym $mod+Mod3+1 move container to workspace 1
+bindsym $mod+Mod3+2 move container to workspace 2
+bindsym $mod+Mod3+3 move container to workspace 3
+bindsym $mod+Mod3+4 move container to workspace 4
+bindsym $mod+Mod3+5 move container to workspace 5
+bindsym $mod+Mod3+6 move container to workspace 6
+bindsym $mod+Mod3+7 move container to workspace 7
+bindsym $mod+Mod3+8 move container to workspace 8
+bindsym $mod+Mod3+9 move container to workspace 9
+bindsym $mod+Mod3+0 move container to workspace 10
+
+# edit the configuration files
+bindsym $mod+Mod3+e exec gnome-terminal -- /bin/sh -c 'vim ~/.config/i3/config'
+bindsym Shift+Mod3+e exec gnome-terminal -- /bin/sh -c 'vim ~/.vimrc'
+
+# reload the configuration files
+bindsym $mod+Mod3+r reload
+
+# exit i3 (logs you out of your X session)
+bindsym $mod+Mod3+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+bar {
+        status_command i3status
+}
