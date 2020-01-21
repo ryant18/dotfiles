@@ -53,4 +53,21 @@ call vundle#end()
 filetype plugin indent on
 syntax on
 
+
+nnoremap <s-h> :wincmd h<CR>
+nnoremap <s-j> :wincmd j<CR>
+nnoremap <s-k> :wincmd k<CR>
+nnoremap <s-l> :wincmd l<CR>
+
+nnoremap ! 1gt
+nnoremap @ 2gt
+nnoremap # 3gt
+nnoremap $ 4gt
+nnoremap % 5gt
+nnoremap ^ 6gt
+nnoremap & 7gt
+nnoremap * 8gt
+nnoremap ( 9gt
+nnoremap ) 0gt
+
 nnoremap <C-g> :silent! exe printf('match IncSearch /\<%s\>/', expand('<cword>'))<CR>

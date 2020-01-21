@@ -1,8 +1,3 @@
-# ----- AutoStart ------
-exec xmodmap ~/keybinds.txt
-
-
-
 set $mod Control
 
 font pango:monospace 8
