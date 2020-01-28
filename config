@@ -1,11 +1,17 @@
-exec --no-startup-id feh --bg-fill ~/.backgrounds/mountain.jpg
-exec xbindkeys
+exec "xrandr --output eDP-1 --scale 0.6x0.6"
+exec xautolock -corners ---- -locker 'i3lock-fancy -t "" -n' -time 5
+exec --no-startup-id feh --bg-fill ~/.config/background/background.jpg
+
+exec "sleep 5; xmodmap ~/.Xmodmap"
+exec "setxkbmap -option caps:ctrl_modifier"
 
 set $mod Control
 
 font pango:monospace 8
 
 floating_modifier $mod
+
+new_window pixel 1
 
 # start a terminal
 bindsym $mod+Return exec gnome-terminal --working-directory="`xcwd`"
@@ -98,7 +104,10 @@ bindsym Shift+Mod3+e exec gnome-terminal -- /bin/sh -c 'vim ~/.vimrc'
 bindsym $mod+Mod3+r reload
 
 # exit i3 (logs you out of your X session)
-bindsym $mod+Mod3+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym Mod4+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# lock the screen
+bindsym Mod4+l exec "i3lock-fancy -t '' -n"
 
 bar {
         status_command i3status
