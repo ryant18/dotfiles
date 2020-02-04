@@ -3,9 +3,9 @@ exec xautolock -corners ---- -locker 'i3lock-fancy -t "" -n' -time 5
 exec --no-startup-id feh --bg-fill ~/.config/background/background.jpg
 
 exec "sleep 5; xmodmap ~/.Xmodmap"
-exec "setxkbmap -option caps:ctrl_modifier"
+exec "gnome-terminal"
 
-set $mod Control
+set $mod Mod1
 
 font pango:monospace 8
 
@@ -14,7 +14,7 @@ floating_modifier $mod
 new_window pixel 1
 
 # start a terminal
-bindsym $mod+Return exec gnome-terminal --working-directory="`xcwd`"
+bindsym $mod+Return exec "st bash -c 'cd $(bash -c xcwd); bash'"
 
 # kill focused window
 bindsym $mod+w kill
