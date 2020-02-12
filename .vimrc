@@ -12,6 +12,7 @@ set backspace=indent,eol,start
 set tabstop=2
 set shiftwidth=2
 set expandtab
+set autoindent
 
 set laststatus=2
 set showcmd

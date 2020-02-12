@@ -19,10 +19,16 @@ source ~/.bash_aliases
 source /usr/local/bin/virtualenvwrapper.sh
 
 # open terminal to last changed directory
-CWDFILE="/home/ryan/.scripts/cwd.txt"
+CWDFILE="/home/ryan/.cwd.txt"
+
+pathsave() {
+  cd $1
+  echo $(pwd) > $CWDFILE
+}
+alias cd='pathsave $1'
+
 if [[ ! -f $CWDFILE  ]]; then
   touch $CWDFILE
-  echo "/home/ryan/projects" > $CWDFILE
+  echo "/home/ryan" > $CWDFILE
 fi
-
 cd $(cat $CWDFILE)

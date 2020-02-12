@@ -14,7 +14,7 @@ floating_modifier $mod
 new_window pixel 1
 
 # start a terminal
-bindsym $mod+Return exec "st bash -c 'cd $(bash -c xcwd); bash'"
+bindsym $mod+Return exec "st"
 
 # kill focused window
 bindsym $mod+w kill
@@ -108,6 +108,9 @@ bindsym Mod4+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do 
 
 # lock the screen
 bindsym Mod4+l exec "i3lock-fancy -t '' -n"
+
+# change brightness
+# bindsym Mod4+XF86MonBrightnessDown 
 
 bar {
         status_command i3status
