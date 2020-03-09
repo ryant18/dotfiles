@@ -1,0 +1,131 @@
+exec "xrandr --output eDP-1 --scale 0.6x0.6"
+exec xautolock -corners ---- -locker 'i3lock-fancy -t "" -n' -time 5
+exec --no-startup-id feh --bg-fill ~/.config/background/background.jpg
+
+exec "sleep 5; xmodmap ~/.Xmodmap"
+exec "st"
+
+set $caps Mod3
+set $space Mod5
+set $windows Mod4
+
+font pango:monospace 8
+
+floating_modifier $caps
+
+new_window pixel 1
+#workspace_auto_back_and_forth yes
+
+# start a terminal
+bindsym $caps+Return exec "st"
+
+# start chrome
+bindsym $caps+c exec "google-chrome"
+
+# kill focused window
+bindsym $caps+w kill
+
+# start dmenu (a program launcher)
+# bindsym $caps+d exec dmenu_run
+# There also is the (new) i3-dmenu-desktop which only displays applications
+# shipping a .desktop file. It is a wrapper around dmenu, so you need that
+# installed.
+bindsym $caps+d exec --no-startup-id i3-dmenu-desktop
+
+# change focus
+bindsym $caps+h focus left
+bindsym $caps+j focus down
+bindsym $caps+k focus up
+bindsym $caps+l focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $caps+Left focus left
+bindsym $caps+Down focus down
+bindsym $caps+Up focus up
+bindsym $caps+Right focus right
+
+# move focused window
+bindsym $caps+$space+h move left
+bindsym $caps+$space+j move down
+bindsym $caps+$space+k move up
+bindsym $caps+$space+l move right
+
+bindsym $caps+$space+Left move left
+bindsym $caps+$space+Down move down
+bindsym $caps+$space+Up move up
+bindsym $caps+$space+Right move right
+
+# split direction
+bindsym $caps+$space+backslash split h
+bindsym $caps+$space+minus split v
+
+# enter fullscreen mode for the focused container
+# bindsym $caps+f fullscreen
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $caps+$space+w layout stacking
+bindsym $caps+$space+t layout tabbed
+bindsym $caps+$space+s layout toggle split
+
+# toggle tiling / floating
+#bindsym $caps+$space+space floating toggle
+
+# change focus between tiling / floating windows
+#bindsym $caps+space focus mode_toggle
+
+# switch to workspace
+bindsym $caps+1 workspace 1
+bindsym $caps+2 workspace 2
+bindsym $caps+3 workspace 3
+bindsym $caps+4 workspace 4
+bindsym $caps+5 workspace 5
+bindsym $caps+6 workspace 6
+bindsym $caps+7 workspace 7
+bindsym $caps+8 workspace 8
+bindsym $caps+9 workspace 9
+bindsym $caps+0 workspace 10
+
+# move focused container to workspace
+bindsym $caps+$space+1 move container to workspace 1; workspace 1
+bindsym $caps+$space+2 move container to workspace 2; workspace 2
+bindsym $caps+$space+3 move container to workspace 3; workspace 3
+bindsym $caps+$space+4 move container to workspace 4; workspace 4
+bindsym $caps+$space+5 move container to workspace 5; workspace 5
+bindsym $caps+$space+6 move container to workspace 6; workspace 6
+bindsym $caps+$space+7 move container to workspace 7; workspace 7
+bindsym $caps+$space+8 move container to workspace 8; workspace 8
+bindsym $caps+$space+9 move container to workspace 9; workspace 9
+bindsym $caps+$space+0 move container to workspace 10 workspace 10
+
+# resize windows
+bindsym $windows+h resize shrink width 2 px or 2 ppt
+bindsym $windows+j resize shrink height 2 px or 2 ppt
+bindsym $windows+k resize grow height 2 px or 2 ppt
+bindsym $windows+l resize grow width 2 px or 2 ppt
+
+bindsym $windows+Left resize shrink width 2 px or 2 ppt
+bindsym $windows+Down resize shrink height 2 px or 2 ppt
+bindsym $windows+Up resize grow height 2 px or 2 ppt
+bindsym $windows+Right resize grow width 2 px or 2 ppt
+
+# edit the configuration files
+bindsym $caps+$space+e exec gnome-terminal -- /bin/sh -c 'vim ~/.config/i3/config'
+bindsym Shift+$space+e exec gnome-terminal -- /bin/sh -c 'vim ~/.vimrc'
+
+# reload the configuration files
+bindsym $caps+$space+r reload
+
+# exit i3 (logs you out of your X session)
+bindsym $windows+$space+q exec "i3-nagbar -t warning -m 'Logout?' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# lock the screen
+bindsym $windows+$space+l exec "i3lock-fancy -t '' -n"
+
+# change brightness
+bindsym $windows+XF86MonBrightnessDown exec "sudo /home/ryan/.scripts/brightnessdown.sh"
+bindsym $windows+XF86MonBrightnessUp exec "sudo /home/ryan/.scripts/brightnessup.sh"
+
+
+bar {
+        status_command i3status
+}
