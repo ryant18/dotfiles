@@ -1,17 +1,16 @@
 exec "xrandr --output eDP-1 --scale 0.6x0.6"
-exec xautolock -corners ---- -locker 'i3lock-fancy -t "" -n' -time 5
-exec --no-startup-id feh --bg-fill ~/.config/background/background.jpg
-
+exec "xautolock -corners ---- -locker 'i3lock-fancy -t "" -n' -time 5"
+exec "--no-startup-id feh --bg-fill ~/.config/background/background.jpg"
+exec "xinput set-props 12 307 1"
+exec "/usr/bin/libinput-gestures"
 exec "sleep 5; xmodmap ~/.Xmodmap"
-exec "st"
 
 set $caps Mod3
 set $space Mod5
 set $windows Mod4
 
 font pango:monospace 8
-
-floating_modifier $caps
+focus_follows_mouse no
 
 new_window pixel 1
 #workspace_auto_back_and_forth yes
@@ -20,7 +19,7 @@ new_window pixel 1
 bindsym $caps+Return exec "st"
 
 # start chrome
-bindsym $caps+c exec "google-chrome"
+bindsym $caps+\ exec "google-chrome"
 
 # kill focused window
 bindsym $caps+w kill
