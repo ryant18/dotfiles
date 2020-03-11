@@ -13,5 +13,5 @@ cp ./bash_aliases ~/.bash_aliases
 mkdir -p ~/.config
 cp ./libinput-gestures.conf ~/.config/
 cp -r ./background ~/.config/
-cp -r scripts ~/.scripts
+cp -r ./scripts/* ~/.scripts/
 

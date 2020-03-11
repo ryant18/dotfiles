@@ -1,5 +1,6 @@
 set nocompatible
 filetype off
+set clipboard=unnamedplus
 set mouse=a
 if has("mouse_sgr")
     set ttymouse=sgr
@@ -7,7 +8,7 @@ else
     set ttymouse=xterm2
 end
 
-set number
+set number relativenumber
 set backspace=indent,eol,start
 set tabstop=2
 set shiftwidth=2
@@ -34,11 +35,8 @@ highlight Comment cterm=bold
 let g:AutoPairs={'(':')', '[':']', '{':'}', "'''":"'''"}
 
 let g:ale_fix_on_save = 1
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'python': ['yapf', 'add_blank_lines_for_python_control_statements', 'isort'],
-\   'c': ['clang-format'],
-\}
+let g:ale_c_parse_makefile = 1
+let g:ale_linters_explicit = 1
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -47,7 +45,6 @@ Plugin 'VundleVim/Vundle.vim'
 Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'ycm-core/YouCompleteMe'
 
-Plugin 'vim-syntastic/syntastic'
 Plugin 'dense-analysis/ale'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'Chiel92/vim-autoformat'
@@ -76,3 +73,27 @@ nnoremap ( 9gt
 nnoremap ) 0gt
 
 nnoremap <C-g> :silent! exe printf('match IncSearch /\<%s\>/', expand('<cword>'))<CR>
+
+""0	Black   1	Maroon   2	Green
+""3	Olive   4	Navy     5	Purple 
+""6	Teal    7	Silver   8	Grey 
+""9	Red    10	Lime    11	Yellow
+""12	Blue   13	Fuchsia 14	Aqua 
+""15	White
+"hi statusline ctermfg=235 ctermbg=15
+"au InsertEnter * hi statusline ctermfg=6 ctermbg=0
+"au InsertLeave * hi statusline ctermfg=235 ctermbg=15
+"
+"" Formats the statusline
+"set statusline=%f                           " file name
+"set statusline+=[%{strlen(&fenc)?&fenc:'none'}, "file encoding
+"set statusline+=%{&ff}] "file format
+"set statusline+=%y      "filetype
+"set statusline+=%h      "help file flag
+"set statusline+=%m      "modified flag
+"set statusline+=%r      "read only flag
+"set statusline+=\ %=                        " align left
+"set statusline+=Line:%l/%L[%p%%]            " line X of Y [percent of file]
+"set statusline+=\ Col:%c                    " current column
+"set statusline+=\ Buf:%n                    " Buffer number
+"set statusline+=\ [%b][0x%B]\               " ASCII and byte code under cursor

@@ -1,9 +1,9 @@
-exec "xrandr --output eDP-1 --scale 0.6x0.6"
-exec "xautolock -corners ---- -locker 'i3lock-fancy -t "" -n' -time 5"
-exec "--no-startup-id feh --bg-fill ~/.config/background/background.jpg"
-exec "xinput set-props 12 307 1"
-exec "/usr/bin/libinput-gestures"
-exec "sleep 5; xmodmap ~/.Xmodmap"
+exec xrandr --output eDP-1 --scale 0.6x0.6
+exec xautolock -corners ---- -locker 'i3lock-fancy -t "" -n' -time 5
+exec --no-startup-id feh --bg-fill ~/.config/background/background.jpg
+exec "xinput set-prop 12 307 1"
+exec /usr/bin/libinput-gestures
+exec sleep 5; xmodmap ~/.Xmodmap
 
 set $caps Mod3
 set $space Mod5
@@ -19,7 +19,7 @@ new_window pixel 1
 bindsym $caps+Return exec "st"
 
 # start chrome
-bindsym $caps+\ exec "google-chrome"
+bindsym $caps+backslash exec "google-chrome"
 
 # kill focused window
 bindsym $caps+w kill
@@ -108,8 +108,8 @@ bindsym $windows+Up resize grow height 2 px or 2 ppt
 bindsym $windows+Right resize grow width 2 px or 2 ppt
 
 # edit the configuration files
-bindsym $caps+$space+e exec gnome-terminal -- /bin/sh -c 'vim ~/.config/i3/config'
-bindsym Shift+$space+e exec gnome-terminal -- /bin/sh -c 'vim ~/.vimrc'
+bindsym $caps+$space+e exec st vim ~/.config/i3/config
+bindsym Shift+$space+e exec st vim ~/.vimrc
 
 # reload the configuration files
 bindsym $caps+$space+r reload

@@ -1,5 +1,11 @@
 # Install Repos
 
+```
+xclip
+fonts-powerline
+```
+Install other linters as needed for ale
+
 ## Touchpad Gestures
 https://github.com/bulletmark/libinput-gestures
 

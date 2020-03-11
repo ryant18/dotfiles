@@ -15,6 +15,9 @@ HISTFILESIZE=2000
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
+# edit using vim commands
+set -o vi
+
 source ~/.bash_aliases
 source /usr/local/bin/virtualenvwrapper.sh
 
@@ -26,11 +29,6 @@ pathsave() {
   echo $(pwd) > $CWDFILE
 }
 alias cd='pathsave $1'
-
-csvview() {
-  command column -s, -t < $1 | less -#2 -N -S
-}
-alias csv='csvview $1'
 
 if [[ ! -f $CWDFILE  ]]; then
   touch $CWDFILE
