@@ -22,7 +22,7 @@ source ~/.bash_aliases
 source /usr/local/bin/virtualenvwrapper.sh
 
 # open terminal to last changed directory
-CWDFILE="/home/ryan/.cwd.txt"
+CWDFILE="/home/ryan/.scripts/cwd.txt"
 
 pathsave() {
   cd $1

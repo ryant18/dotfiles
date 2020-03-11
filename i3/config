@@ -1,13 +1,13 @@
 exec xrandr --output eDP-1 --scale 0.6x0.6
-exec xautolock -corners ---- -locker 'i3lock-fancy -t "" -n' -time 5
+exec xautolock -corners ---- -locker ~/.scripts/wifilocker.sh -time 5
 exec --no-startup-id feh --bg-fill ~/.config/background/background.jpg
 exec "xinput set-prop 12 307 1"
 exec /usr/bin/libinput-gestures
 exec sleep 5; xmodmap ~/.Xmodmap
 
 set $caps Mod3
-set $space Mod5
 set $windows Mod4
+set $space Mod5
 
 font pango:monospace 8
 focus_follows_mouse no
@@ -115,7 +115,7 @@ bindsym Shift+$space+e exec st vim ~/.vimrc
 bindsym $caps+$space+r reload
 
 # exit i3 (logs you out of your X session)
-bindsym $windows+$space+q exec "i3-nagbar -t warning -m 'Logout?' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $windows+$space+q exec "i3-nagbar -t warning -m 'Shutdown?' -b 'Shutdown' 'sudo shutdown now' -b 'Reboot' 'sudo reboot now'"
 
 # lock the screen
 bindsym $windows+$space+l exec "i3lock-fancy -t '' -n"
