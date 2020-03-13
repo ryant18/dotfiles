@@ -2,6 +2,7 @@
 
 cp -r ./i3 ~/.config/
 cp -r ./i3status ~/.config/
+cp -r ./i3blocks ~/.config/
 
 cp ./vimrc ~/.vimrc
 mkdir -p ~/.vim

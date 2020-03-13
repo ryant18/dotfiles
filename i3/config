@@ -1,5 +1,5 @@
 exec xrandr --output eDP-1 --scale 0.6x0.6
-exec xautolock -corners ---- -locker ~/.scripts/wifilocker.sh -time 5
+exec xautolock -corners ---- -locker ~/.scripts/wifilocker -time 5
 exec --no-startup-id feh --bg-fill ~/.config/background/background.jpg
 exec "xinput set-prop 12 307 1"
 exec /usr/bin/libinput-gestures
@@ -121,10 +121,10 @@ bindsym $windows+$space+q exec "i3-nagbar -t warning -m 'Shutdown?' -b 'Shutdown
 bindsym $windows+$space+l exec "i3lock-fancy -t '' -n"
 
 # change brightness
-bindsym $windows+XF86MonBrightnessDown exec "sudo /home/ryan/.scripts/brightnessdown.sh"
-bindsym $windows+XF86MonBrightnessUp exec "sudo /home/ryan/.scripts/brightnessup.sh"
+bindsym $windows+XF86MonBrightnessDown exec "sudo /home/ryan/.scripts/brightnessdown"
+bindsym $windows+XF86MonBrightnessUp exec "sudo /home/ryan/.scripts/brightnessup"
 
 
 bar {
-        status_command i3status
+        status_command i3blocks
 }
