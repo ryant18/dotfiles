@@ -34,6 +34,9 @@ highlight Comment cterm=bold
 
 let g:AutoPairs={'(':')', '[':']', '{':'}', "'''":"'''"}
 
+let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
+autocmd VimEnter * RainbowParentheses
+
 let g:ale_fix_on_save = 1
 let g:ale_c_parse_makefile = 1
 let g:ale_linters_explicit = 1
@@ -47,9 +50,11 @@ Plugin 'ycm-core/YouCompleteMe'
 
 Plugin 'dense-analysis/ale'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'junegunn/rainbow_parentheses.vim'
 Plugin 'Chiel92/vim-autoformat'
 
 Plugin 'chrisbra/csv.vim'
+Plugin 'suan/vim-instant-markdown', {'rtp': 'after'}
 
 call vundle#end()
 filetype plugin indent on

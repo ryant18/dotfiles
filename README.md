@@ -1,9 +1,21 @@
 # Install Repos
 
+Vim
 ```
 xclip
 fonts-powerline
 ```
+
+Markdown
+```
+npm -g install instant-markdown-d
+
+xdg-utils
+curl
+nodejs
+```
+
+
 Install other linters as needed for ale
 
 ## Touchpad Gestures
