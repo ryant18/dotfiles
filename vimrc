@@ -56,23 +56,23 @@ filetype plugin indent on
 syntax on
 
 
-nnoremap <s-h> :wincmd h<CR>
-nnoremap <s-j> :wincmd j<CR>
-nnoremap <s-k> :wincmd k<CR>
-nnoremap <s-l> :wincmd l<CR>
+nnoremap h :wincmd h<CR>
+nnoremap j :wincmd j<CR>
+nnoremap k :wincmd k<CR>
+nnoremap l :wincmd l<CR>
 
-nnoremap ! 1gt
-nnoremap @ 2gt
-nnoremap # 3gt
-nnoremap $ 4gt
-nnoremap % 5gt
-nnoremap ^ 6gt
-nnoremap & 7gt
-nnoremap * 8gt
-nnoremap ( 9gt
-nnoremap ) 0gt
+nnoremap 1 1gt
+nnoremap 2 2gt
+nnoremap 3 3gt
+nnoremap 4 4gt
+nnoremap 5 5gt
+nnoremap 6 6gt
+nnoremap 7 7gt
+nnoremap 8 8gt
+nnoremap 9 9gt
+nnoremap 0 0gt
 
-nnoremap <C-g> :silent! exe printf('match IncSearch /\<%s\>/', expand('<cword>'))<CR>
+nnoremap g :silent! exe printf('match IncSearch /\<%s\>/', expand('<cword>'))<CR>
 
 ""0	Black   1	Maroon   2	Green
 ""3	Olive   4	Navy     5	Purple 

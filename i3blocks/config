@@ -1,37 +1,37 @@
 [text]
 command=echo "CPU"
 separator=false
-interval=1
+interval=5
 
 [cpu_usage]
 command=~/.scripts/i3blocks/cpu_graph
 color=#4285F4
-interval=1
+interval=5
 
 [text]
 command=echo "MEM"
 separator=false
-interval=1
+interval=5
 
 [memory]
 command=~/.scripts/i3blocks/memory
 color=#EA4225
-interval=1
+interval=5
 
 [text]
 command=echo "DISK"
 separator=false
-interval=1
+interval=5
 
 [disk]
 command=~/.scripts/i3blocks/disk
 color=#FFEA00
-interval=1
+interval=5
 
 [text]
 command=echo "NET"
 separator=false
-interval=1
+interval=5
 
 [bandwidth]
 command=~/.scripts/i3blocks/bandwidth2
@@ -43,26 +43,26 @@ color=#34A853
 [text]
 command=echo "WIFI"
 separator=false
-interval=1
+interval=5
 
 [wifi]
 command=~/.scripts/i3blocks/wifi
-interval=1
+interval=5
 
 [text]
 command=echo "BAT "
 separator=false
-interval=1
+interval=5
 
 [batterybar]
 command=~/.scripts/i3blocks/batterybar
 markup=pango
-interval=1
+interval=5
 separator=false
 
 [battery]
 command=~/.scripts/i3blocks/battery
-interval=1
+interval=5
 color=#4285F4
 
 [time]
@@ -71,4 +71,4 @@ interval=5
 
 [time]
 command=date '+%Y-%m-%d'
-interval=5  
+interval=60  
