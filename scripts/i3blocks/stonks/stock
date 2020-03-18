@@ -1,0 +1,43 @@
+#!/bin/bash
+
+TICKER=SPY
+REQUESTDATE=~/.scripts/i3blocks/stonks/${TICKER}requestdate.txt
+RESPONSE=~/.scripts/i3blocks/stonks/${TICKER}response.txt
+
+OPEN=$(date --date="9:30" +%s)
+CLOSE=$(date --date="16:00" +%s)
+CURRTIME=$(TZ=America/New_York date +%s)
+WEEKDAY=$(TZ=America/New_York date +%u)
+
+CURRDATE=\"$(date "+%Y-%m-%d")\"
+PREVJSONDATE=$(cat $RESPONSE | jq '."Global Quote"."07. latest trading day"')
+
+function priceText() {
+  JSON=$(cat $RESPONSE | jq '."Global Quote"')
+  PRICE=$(echo $JSON | jq '."05. price"' | tr -d '"' | xargs printf "%.2f")
+  PERCENT=$(echo $JSON | jq '."10. change percent"' | tr -d '"' | xargs printf "%.2f")
+  PRICECOLOR=#34A853
+  if [[ $PERCENT =~ "-" ]]; then
+    PRICECOLOR=#EA4225
+  fi
+
+  printf "%s <span foreground=\"%s\">$%.2f %.2f%%</span>" \
+          $TICKER $PRICECOLOR $PRICE $PERCENT
+}
+
+if ! [ $OPEN -le $CURRTIME -a $CURRTIME -le $CLOSE -a $WEEKDAY -le 5 ] ||
+     [ $(cat $REQUESTDATE) == $CURRDATE -a $PREVJSONDATE != $CURRDATE  ]; then
+  echo "$(priceText)<span foreground=\"#FFEA00\"> ==Market Closed==</span>"
+else
+  URL="https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol="$TICKER"&apikey="$(head /dev/urandom | tr -dc A-Z | head -c 10)
+  QUOTE=$(curl -s --max-time 5 $URL)
+  
+  if [ $? != 0 ]; then
+    echo "$(priceText)<span foreground=\"#FFEA00\"> ==Connection Error==</span>"
+  else
+    echo $QUOTE > $RESPONSE
+    echo $CURRDATE > $REQUESTDATE
+    echo "$(priceText)"
+  fi
+fi
+

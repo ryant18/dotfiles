@@ -20,6 +20,7 @@ set -o vi
 
 source ~/.bash_aliases
 source /usr/local/bin/virtualenvwrapper.sh
+source ~/.fzf.bash
 
 # open terminal to last changed directory
 CWDFILE="/home/ryan/.scripts/.cwd.txt"
@@ -35,3 +36,4 @@ if [[ ! -f $CWDFILE  ]]; then
   echo "/home/ryan" > $CWDFILE
 fi
 cd $(cat $CWDFILE)
+

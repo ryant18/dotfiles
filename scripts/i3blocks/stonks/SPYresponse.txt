@@ -1,0 +1,1 @@
+{ "Global Quote": { "01. symbol": "SPY", "02. open": "245.0400", "03. high": "256.1700", "04. low": "237.0700", "05. price": "252.8000", "06. volume": "260566279", "07. latest trading day": "2020-03-17", "08. previous close": "239.8500", "09. change": "12.9500", "10. change percent": "5.3992%" } }
