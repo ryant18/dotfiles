@@ -4,7 +4,7 @@ set $caps Mod1
 set $windows Mod4
 set $space Mod5
 
-font pango:monospace 8
+font pango:monospace 9
 focus_follows_mouse no
 
 new_window pixel 1

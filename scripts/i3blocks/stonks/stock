@@ -11,18 +11,32 @@ WEEKDAY=$(TZ=America/New_York date +%u)
 
 CURRDATE=\"$(date "+%Y-%m-%d")\"
 PREVJSONDATE=$(cat $RESPONSE | jq '."Global Quote"."07. latest trading day"')
+PREVPERCENT=$(cat $RESPONSE | jq '."Global Quote"."10. change percent"' | xargs printf "%.2f")
 
 function priceText() {
   JSON=$(cat $RESPONSE | jq '."Global Quote"')
-  PRICE=$(echo $JSON | jq '."05. price"' | tr -d '"' | xargs printf "%.2f")
-  PERCENT=$(echo $JSON | jq '."10. change percent"' | tr -d '"' | xargs printf "%.2f")
-  PRICECOLOR=#34A853
+  PRICE=$(echo $JSON | jq '."05. price"' | xargs printf "%.2f")
+  PERCENT=$(echo $JSON | jq '."10. change percent"' | xargs printf "%.2f")
+  PERCENTCHANGE=$(echo "$PERCENT - $PREVPERCENT" | bc)
+
+  PERCENTCOLOR=#34A853
+  if [[ $PERCENT == 0 ]]; then
+    PERCENTCOLOR=#ffffff
+  fi
   if [[ $PERCENT =~ "-" ]]; then
-    PRICECOLOR=#EA4225
+    PERCENTCOLOR=#EA4225
   fi
 
-  printf "%s <span foreground=\"%s\">$%.2f %.2f%%</span>" \
-          $TICKER $PRICECOLOR $PRICE $PERCENT
+  PERCENTCHANGECOLOR=#34A853
+  if [[ $PERCENTCHANGE == 0 ]]; then
+    PERCENTCHANGECOLOR=#ffffff
+  fi
+  if [[ $PERCENTCHANGE =~ "-" ]]; then
+    PERCENTCHANGECOLOR=#EA4225
+  fi
+
+  printf "%s <span foreground=\"#FFFFFF\">$%.2f</span> <span foreground=\"%s\">%.2f%%</span> <span foreground=\"%s\">%.2f%%</span>" \
+          $TICKER $PRICE $PERCENTCHANGECOLOR $PERCENTCHANGE $PERCENTCOLOR $PERCENT
 }
 
 if ! [ $OPEN -le $CURRTIME -a $CURRTIME -le $CLOSE -a $WEEKDAY -le 5 ] ||

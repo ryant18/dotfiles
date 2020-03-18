@@ -1,0 +1,38 @@
+#!/bin/bash
+
+SYMBOLS=("$@")
+
+FIELDS=(symbol regularMarketPrice regularMarketChangePercent marketState)
+API_ENDPOINT="https://query1.finance.yahoo.com/v7/finance/quote?lang=en-US&region=US&corsDomain=finance.yahoo.com"
+
+symbols=$(IFS=,; echo "${SYMBOLS[*]}")
+fields=$(IFS=,; echo "${FIELDS[*]}")
+results=$(curl --silent "$API_ENDPOINT&fields=$fields&symbols=$symbols" \
+  | jq '.quoteResponse .result')
+
+query () {
+  echo $results | jq -r ".[] | select(.symbol == \"$1\") | .$2"
+}
+
+
+for symbol in $(IFS=' '; echo "${SYMBOLS[*]}"); do
+  state=$(query $symbol 'marketState')
+  price=$(query $symbol 'regularMarketPrice')
+  percent=$(query $symbol 'regularMarketChangePercent')
+
+  PERCENTCOLOR=#34A853
+  if [[ $percent == 0 ]]; then
+    PERCENTCOLOR=#ffffff
+  elif [[ $percent =~ "-" ]]; then
+    PERCENTCOLOR=#EA4225
+  fi
+
+  printf "%s $%.2f <span foreground=\"%s\">%.2f%%</span> " \
+    $symbol $price $PERCENTCOLOR $percent
+done
+
+if [ $state != "REGULAR"  ]; then
+  printf "<span foreground=\"#FFEA00\">==CLOSED==</span>"
+fi
+
+printf "\n"
