@@ -30,17 +30,18 @@ val=(`cat $SAVE2`)
 
 MEMINFO=$(cat "/proc/meminfo")
 TOTAL=$(echo "$MEMINFO" | grep "^MemTotal:" | grep -oE '[0-9]+')
-AVAILABLE=$(echo "$MEMINFO" | grep "^MemAvailable:" | grep -oE '[0-9]+')
+FREE=$(echo "$MEMINFO" | grep "^MemFree:" | grep -oE '[0-9]+')
 
-usage=$(( 100 * $((TOTAL-AVAILABLE ))/ TOTAL ))
+percentusage=$(echo "scale=4; (($TOTAL - $FREE) / $TOTAL) * 100" | bc | xargs printf "%2.2f")
+usage=$(echo $percentusage | xargs printf "%.0f")
 
-if [[ $usage -ge 7500 ]]
+if [[ $usage -ge 75 ]]
 then
   val=(${val[@]:1:12} 4)
-elif [[ $usage -ge 5000 ]]
+elif [[ $usage -ge 50 ]]
 then
   val=(${val[@]:1:12} 3)
-elif [[ $usage -ge 2500 ]]
+elif [[ $usage -ge 25 ]]
 then
   val=(${val[@]:1:12} 2)
 else
@@ -48,6 +49,6 @@ else
 fi
 
 echo -ne ${graph[${val[0]}${val[1]}]}${graph[${val[2]}${val[3]}]}${graph[${val[4]}${val[5]}]}${graph[${val[6]}${val[7]}]}${graph[${val[8]}${val[9]}]}${graph[${val[10]}${val[11]}]}
-printf " %.2f%%\n" $((usage / 100)).$((usage % 100))
+printf " %.2f%%\n" $percentusage
 
 echo ${val[@]} > $SAVE2
