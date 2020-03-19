@@ -156,9 +156,9 @@ mode "resize" {
 
 
 
-bindsym $caps+Return mode"external"
+bindsym $caps+semicolon mode"external"
 mode "external"{
-  bindsym $caps+Return mode "default" 
+  bindsym $caps+semicolon mode "default" 
 }
 
 
