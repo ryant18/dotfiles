@@ -9,6 +9,7 @@ cp -r ~/.vim/colors ./vim/
 cp -r ~/.vim/ftplugin ./vim/
 
 cp ~/.bashrc ./bashrc
+cp ~/.inputrc ./inputrc
 cp ~/.bash_aliases ./bash_aliases
 
 cp ~/.config/libinput-gestures.conf .

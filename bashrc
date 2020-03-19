@@ -1,4 +1,4 @@
-export PS1="\[\e[1;31m\][\[\e[m\]\[\e[1;32m\]\u\[\e[m\]\[\e[36m\]@\[\e[m\]\[\e[1;32m\]\h\[\e[m\] \[\e[1;34m\]\w\[\e[m\]\[\e[1;31m\]]\[\e[m\]$ "
+export PS1="\[\e[1;31m\][\[\e[m\]\[\e[1;32m\]\u\[\e[m\]\[\e[36m\]@\[\e[m\]\[\e[1;32m\]\h\[\e[m\] \[\e[1;34m\]\w\[\e[m\]\[\e[1;31m\]]\[\e[m\]\m "
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options

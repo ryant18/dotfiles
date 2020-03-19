@@ -9,6 +9,7 @@ mkdir -p ~/.vim
 cp -r ./vim/* ~/.vim/
 
 cp ./bashrc ~/.bashrc
+cp ./inputrc ~/.inputrc
 cp ./bash_aliases ~/.bash_aliases
 
 mkdir -p ~/.config
