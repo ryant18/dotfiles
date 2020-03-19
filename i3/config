@@ -55,13 +55,6 @@ bindsym $caps+$space+8 move container to workspace 8; workspace 8
 bindsym $caps+$space+9 move container to workspace 9; workspace 9
 bindsym $caps+$space+0 move container to workspace 10 workspace 10
 
-# edit the configuration files
-bindsym $caps+$space+e exec st vim ~/.config/i3/config
-bindsym Shift+$space+e exec st vim ~/.vimrc
-
-# reload the configuration files
-bindsym $caps+$space+r reload
-
 # exit i3 (logs you out of your X session)
 bindsym $windows+$space+q exec "i3-nagbar -t warning -m 'Shutdown?' -b 'Shutdown' 'sudo shutdown now' -b 'Reboot' 'sudo reboot now'"
 
@@ -151,6 +144,9 @@ mode "resize" {
   bindsym $caps+f fullscreen
 
 }
+
+
+
 
 
 
