@@ -51,5 +51,8 @@ https://github.com/ycm-core/YouCompleteMe
 ```
 sudo apt install build-essential cmake python3-dev
 cd ~/.vim/bundle/YouCompleteMe
-python3 install.py --clangd-completer
+python3 install.py --clangd-completer 
+
+
+pip3 install bandit mypy flake8 vulture yapf isort
 ```

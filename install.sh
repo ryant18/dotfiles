@@ -1,5 +1,8 @@
 #!/bin/bash
 
+mkdir -p ~/.config
+cp ./libinput-gestures.conf ~/.config/
+cp -r ./background ~/.config/
 cp -r ./i3 ~/.config/
 cp -r ./i3status ~/.config/
 cp -r ./i3blocks ~/.config/
@@ -12,8 +15,6 @@ cp ./bashrc ~/.bashrc
 cp ./inputrc ~/.inputrc
 cp ./bash_aliases ~/.bash_aliases
 
-mkdir -p ~/.config
-cp ./libinput-gestures.conf ~/.config/
-cp -r ./background ~/.config/
+mkdir -p ~/.scripts
 cp -r ./scripts/* ~/.scripts/
 
