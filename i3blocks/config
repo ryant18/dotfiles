@@ -46,29 +46,29 @@ markup=pango
 color=#34A853
 
 [text]
-command=echo "WIFI"
-separator=false
-interval=999999999
+#command=echo "WIFI"
+#separator=false
+#interval=999999999
 
 [wifi]
-command=~/.scripts/i3blocks/wifi
-interval=1
+#command=~/.scripts/i3blocks/wifi
+#interval=1
 
 [text]
-command=echo "BAT "
-separator=false
-interval=999999999
+#command=echo "BAT "
+#separator=false
+#interval=999999999
 
 [batterybar]
-command=~/.scripts/i3blocks/batterybar
-markup=pango
-interval=1
-separator=false
+#command=~/.scripts/i3blocks/batterybar
+#markup=pango
+#interval=1
+#separator=false
 
 [battery]
-command=~/.scripts/i3blocks/battery
-interval=1
-color=#4285F4
+#command=~/.scripts/i3blocks/battery
+#interval=1
+#color=#4285F4
 
 [time]
 command=date '+%I:%M:%S'

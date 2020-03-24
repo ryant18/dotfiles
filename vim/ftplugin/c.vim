@@ -6,8 +6,8 @@ let b:ale_linters = [
       \]
 
 let b:ale_fixers = [
-      \'clang_format',
-      \'clangtidy'
+      \'clang-format',
+      \'clangtidy',
       \'remove_trailing_lines',
       \'trim_whitespace',
       \]

@@ -30,6 +30,7 @@ i3
 ```
 curl
 jq
+feh
 ```
 
 Install other linters as needed for ale
