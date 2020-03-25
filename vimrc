@@ -48,6 +48,7 @@ Plugin 'VundleVim/Vundle.vim'
 Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'ycm-core/YouCompleteMe'
 
+Plugin 'psliwka/vim-smoothie'
 Plugin 'dense-analysis/ale'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'junegunn/rainbow_parentheses.vim'
