@@ -5,11 +5,7 @@ Vim
 sudo apt remove vim vim-runtime gvim
 
 
-sudo apt install libncurses5-dev libgnome2-dev libgnomeui-dev \
-libgtk2.0-dev libatk1.0-dev libbonoboui2-dev \
-libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev \
-python3-dev ruby-dev lua5.1 liblua5.1-dev libperl-dev git \
-xclip fonts-powerline
+sudo apt install libncurses5-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev libatk1.0-dev libbonoboui2-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev python3-dev ruby-dev lua5.1 liblua5.1-dev libperl-dev git xclip fonts-powerline xdg-utils curl nodejs
 
 ./configure --with-features=huge --enable-python3interp=yes
 
@@ -17,6 +13,8 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 sudo update-alternatives --install /usr/bin/editor editor /usr/local/bin/vim 1
 sudo update-alternatives --set editor /usr/local/bin/vim
+
+npm -g install instant-markdown-d
 ```
 
 Markdown
