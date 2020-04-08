@@ -42,7 +42,7 @@ cd bash; ./configure
 sudo make install
 
 /etc/shells
-sudo chsh -s /usr/local/bin/bash
+chsh -s /usr/local/bin/bash
 ```
 
 Install other linters as needed for ale
