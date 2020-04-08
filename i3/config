@@ -1,4 +1,4 @@
-exec-always ~/.scripts/startup
+exec ~/.scripts/startup
 
 set $caps Mod1
 set $windows Mod4

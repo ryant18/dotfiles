@@ -61,6 +61,7 @@ call vundle#end()
 filetype plugin indent on
 syntax on
 
+command W w
 
 nnoremap h :wincmd h<CR>
 nnoremap j :wincmd j<CR>
