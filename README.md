@@ -13,6 +13,8 @@ xclip fonts-powerline
 
 ./configure --with-features=huge --enable-python3interp=yes
 
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
 sudo update-alternatives --install /usr/bin/editor editor /usr/local/bin/vim 1
 sudo update-alternatives --set editor /usr/local/bin/vim
 ```
