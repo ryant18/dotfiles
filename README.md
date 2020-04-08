@@ -35,6 +35,16 @@ jq
 feh
 ```
 
+bash
+```
+git clone https://github.com/calid/bash.git -b modestrs --recurse-submodules
+cd bash; ./configure
+sudo make install
+
+/etc/shells
+sudo chsh -s /usr/local/bin/bash
+```
+
 Install other linters as needed for ale
 
 ## Touchpad Gestures
