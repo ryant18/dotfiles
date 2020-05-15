@@ -63,6 +63,9 @@ syntax on
 
 command W w
 
+imap jk <Esc>
+imap kj <Esc>
+
 nnoremap h :wincmd h<CR>
 nnoremap j :wincmd j<CR>
 nnoremap k :wincmd k<CR>
