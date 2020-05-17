@@ -6,6 +6,7 @@ set $space Mod5
 
 font pango:monospace 9
 focus_follows_mouse no
+focus_wrapping no
 
 new_window pixel 3
 
