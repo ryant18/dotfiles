@@ -12,6 +12,7 @@ cp -r ~/.vim/syntax ./vim/
 cp ~/.bashrc ./bashrc
 cp ~/.inputrc ./inputrc
 cp ~/.bash_aliases ./bash_aliases
+cp ~/.zshrc ./zshrc
 
 cp ~/.config/libinput-gestures.conf .
 cp -r ~/.config/background .
