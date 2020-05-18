@@ -55,6 +55,9 @@ zsh
 ```
 sudo apt-get install zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
+
+vim .zinit/plugins/softmoth---zsh-vim-mode/zsh-vim-mode.plugin.zsh
+# comment out the if statement on line 497-500
 ```
 
 Install other linters as needed for ale
