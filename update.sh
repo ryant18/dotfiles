@@ -13,7 +13,6 @@ cp ~/.bashrc ./bashrc
 cp ~/.inputrc ./inputrc
 cp ~/.bash_aliases ./bash_aliases
 cp ~/.zshrc ./zshrc
-cp -r ~/.zinit ./zinit
 
 cp ~/.config/libinput-gestures.conf .
 cp -r ~/.config/background .
