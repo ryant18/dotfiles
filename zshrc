@@ -4,11 +4,10 @@ source $PLUGIN_DIR/zsh-vim-mode.zsh
 source $PLUGIN_DIR/colored-man-pages.zsh
 
 source $PLUGIN_DIR/zsh-autosuggestions.zsh
-#bindkey '\t ' autosuggest-accept
+bindkey 't' autosuggest-accept
 
 source /usr/local/bin/virtualenvwrapper.sh
 source ~/.fzf.zsh
-
 
 
 # ==================== PROMPT =================================================
@@ -66,16 +65,14 @@ projects() {
   fi
 }
 
-# only save sucessful commands in history 
+# dont save some commands in history 
 HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
 HISTORY_IGNORE="(cd *|rm *)"
-
 function zshaddhistory() {
   emulate -L zsh
   setopt extendedglob
-  #figure out return val commands
   [[ $1 != ${~HISTORY_IGNORE} ]]
 }
 

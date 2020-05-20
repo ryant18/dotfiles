@@ -53,6 +53,7 @@ Plugin 'dense-analysis/ale'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'junegunn/rainbow_parentheses.vim'
 Plugin 'Chiel92/vim-autoformat'
+"Plugin 'ConradIrwin/vim-bracketed-paste'
 
 Plugin 'chrisbra/csv.vim'
 Plugin 'suan/vim-instant-markdown', {'rtp': 'after'}
