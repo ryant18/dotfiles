@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/home/ryan/projects/dotfiles/.zsh'
+let g:netrw_dirhist_6='/home/ryan/projects/dotfiles/zsh'
+let g:netrw_dirhist_5='/home/ryan/projects/pserv/src'
+let g:netrw_dirhist_4='/home/ryan/projects/cs4604-acid/project2/scenario-3'
+let g:netrw_dirhist_3='/home/ryan/projects/software_design'
+let g:netrw_dirhist_2='/home/ryan/projects/test2/ryant18'
+let g:netrw_dirhist_1='/home/ryan/projects/threadlab/tests'

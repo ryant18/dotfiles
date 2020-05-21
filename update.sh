@@ -6,6 +6,7 @@ cp -r ~/.config/i3blocks .
 
 cp ~/.vimrc .
 cp -r ~/.vim .
+rm -rf ./.vim/bundle/
 
 cp ~/.bashrc .
 cp ~/.inputrc .
