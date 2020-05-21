@@ -1,29 +1,7 @@
-# =================== LOAD PLUGINS ============================================
 PLUGIN_DIR=~/.zsh/plugins
-source $PLUGIN_DIR/zsh-vim-mode.zsh
-source $PLUGIN_DIR/colored-man-pages.zsh
-
-source $PLUGIN_DIR/zsh-autosuggestions.zsh
-bindkey 'OP' autosuggest-accept
-
-source /usr/local/bin/virtualenvwrapper.sh
-source ~/.fzf.zsh
-
-#F1 ^[OP
-#F2 ^[OQ
-#F3 ^[OR
-#F4 ^[OS
-#F5 ^[[15~
-#F6 ^[[17~
-#F7 ^[[18~
-#F8 ^[[19~
-#F9 ^[[20~
-#F10 ^[[21~
-#F11 ^[[23~
-#F12 ^[[24~
-
 
 # ==================== PROMPT =================================================
+source $PLUGIN_DIR/zsh-vim-mode.zsh
 MODE_CURSOR_VIINS="#00ff00 steady bar"
 MODE_CURSOR_REPLACE="$MODE_CURSOR_VIINS #ff0000"
 MODE_CURSOR_VICMD="green block"
@@ -40,6 +18,12 @@ MODE_INDICATOR_VLINE='vl'
 
 setopt PROMPT_SUBST
 PROMPT='%B%F{red}[%F{green}%n%F{cyan}%b@%B%F{green}%M %F{blue}%~%F{red}]%F{gray}%b${MODE_INDICATOR_PROMPT} '
+
+
+# =================== LOAD PLUGINS ============================================
+source /usr/local/bin/virtualenvwrapper.sh
+source ~/.fzf.zsh
+source $PLUGIN_DIR/colored-man-pages.zsh
 
 
 # ==================== ALIASES =================================================
@@ -86,13 +70,15 @@ HISTORY_IGNORE="(cd *|rm *)"
 function zshaddhistory() {
   emulate -L zsh
   setopt extendedglob
+  whence ${${(z)1}[1]} >| /dev/null || return 1 
   [[ $1 != ${~HISTORY_IGNORE} ]]
 }
-#function zshaddhistory() { 
-#  whence ${${(z)1}[1]} >| /dev/null || return 1 
-#}
+
 
 # =================== TAB COMPLETE =============================================
+source $PLUGIN_DIR/zsh-autosuggestions.zsh
+bindkey 'OP' autosuggest-accept
+
 autoload -U +X compinit && compinit #-C
 
 # dont auto select first entry
@@ -102,8 +88,25 @@ zstyle ':completion:::*:default' menu no select
 eval "$(dircolors -b)"
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
-zstyle ':completion:*:*:temp:*' tag-order 'commands functions'
+# only show directories for ls
 zstyle ':completion:*:ls:*' file-patterns '*(/)'
 
+
+#zstyle ':completion:*:*:temp:*' tag-order 'commands functions'
 #zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 #zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+
+
+#F1 ^[OP
+#F2 ^[OQ
+#F3 ^[OR
+#F4 ^[OS
+#F5 ^[[15~
+#F6 ^[[17~
+#F7 ^[[18~
+#F8 ^[[19~
+#F9 ^[[20~
+#F10 ^[[21~
+#F11 ^[[23~
+#F12 ^[[24~
+#
