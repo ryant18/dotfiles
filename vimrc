@@ -14,6 +14,7 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 set autoindent
+"set so=999
 
 set laststatus=2
 set showcmd
@@ -38,7 +39,6 @@ let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
 autocmd VimEnter * RainbowParentheses
 
 let g:ale_fix_on_save = 1
-let g:ale_c_parse_makefile = 1
 let g:ale_linters_explicit = 1
 
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -47,13 +47,14 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'ycm-core/YouCompleteMe'
+Plugin 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
+Plugin 'junegunn/fzf.vim'
 
 Plugin 'psliwka/vim-smoothie'
 Plugin 'dense-analysis/ale'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'junegunn/rainbow_parentheses.vim'
 Plugin 'Chiel92/vim-autoformat'
-"Plugin 'ConradIrwin/vim-bracketed-paste'
 
 Plugin 'chrisbra/csv.vim'
 Plugin 'suan/vim-instant-markdown', {'rtp': 'after'}
@@ -64,10 +65,21 @@ syntax on
 
 command W w
 
+command Split :call fzf#run({
+\   'down': '30%',
+\   'sink': 'botright split' })
+
+command Vsplit :call fzf#run({
+\   'down': '30%',
+\   'sink': 'vertical split' })
+
 imap jk <Esc>
 imap kj <Esc>
 
 set pastetoggle=<F3>
+
+nnoremap <S-j> <C-E>j
+nnoremap <S-k> <C-Y>k
 
 nnoremap h :wincmd h<CR>
 nnoremap j :wincmd j<CR>

@@ -4,10 +4,23 @@ source $PLUGIN_DIR/zsh-vim-mode.zsh
 source $PLUGIN_DIR/colored-man-pages.zsh
 
 source $PLUGIN_DIR/zsh-autosuggestions.zsh
-bindkey 't' autosuggest-accept
+bindkey 'OP' autosuggest-accept
 
 source /usr/local/bin/virtualenvwrapper.sh
 source ~/.fzf.zsh
+
+#F1 ^[OP
+#F2 ^[OQ
+#F3 ^[OR
+#F4 ^[OS
+#F5 ^[[15~
+#F6 ^[[17~
+#F7 ^[[18~
+#F8 ^[[19~
+#F9 ^[[20~
+#F10 ^[[21~
+#F11 ^[[23~
+#F12 ^[[24~
 
 
 # ==================== PROMPT =================================================
@@ -75,7 +88,9 @@ function zshaddhistory() {
   setopt extendedglob
   [[ $1 != ${~HISTORY_IGNORE} ]]
 }
-
+#function zshaddhistory() { 
+#  whence ${${(z)1}[1]} >| /dev/null || return 1 
+#}
 
 # =================== TAB COMPLETE =============================================
 autoload -U +X compinit && compinit #-C

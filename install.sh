@@ -11,9 +11,6 @@ cp ./vimrc ~/.vimrc
 mkdir -p ~/.vim
 cp -r ./vim/* ~/.vim/
 
-cp ./bashrc ~/.bashrc
-cp ./inputrc ~/.inputrc
-cp ./bash_aliases ~/.bash_aliases
 cp ./zshrc ~/.zshrc
 
 mkdir -p ~/.scripts
