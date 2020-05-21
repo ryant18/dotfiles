@@ -12,6 +12,8 @@ mkdir -p ~/.vim
 cp -r ./vim/* ~/.vim/
 
 cp ./zshrc ~/.zshrc
+mkdir -p ~/.zsh
+cp -r ./zsh/* ~/.zsh/
 
 mkdir -p ~/.scripts
 cp -r ./scripts/* ~/.scripts/
