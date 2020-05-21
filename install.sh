@@ -7,14 +7,11 @@ cp -r ./i3 ~/.config/
 cp -r ./i3status ~/.config/
 cp -r ./i3blocks ~/.config/
 
-cp ./vimrc ~/.vimrc
-mkdir -p ~/.vim
-cp -r ./vim/* ~/.vim/
+cp .vimrc ~
+cp -r ./.vim ~
 
-cp ./zshrc ~/.zshrc
-mkdir -p ~/.zsh
-cp -r ./zsh/* ~/.zsh/
+cp .zshrc ~
+cp -r ./.zsh ~
 
-mkdir -p ~/.scripts
-cp -r ./scripts/* ~/.scripts/
+cp -r .scripts/ ~
 

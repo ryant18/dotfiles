@@ -4,18 +4,16 @@ cp -r ~/.config/i3 .
 cp -r ~/.config/i3status .
 cp -r ~/.config/i3blocks .
 
-cp ~/.vimrc ./vimrc
-cp -r ~/.vim/colors ./vim/
-cp -r ~/.vim/ftplugin ./vim/
-cp -r ~/.vim/syntax ./vim/
+cp ~/.vimrc .
+cp -r ~/.vim .
 
-cp ~/.bashrc ./bashrc
-cp ~/.inputrc ./inputrc
-cp ~/.bash_aliases ./bash_aliases
-cp ~/.zshrc ./zshrc
-cp -r ~/.zsh/ ./zsh
+cp ~/.bashrc .
+cp ~/.inputrc .
+cp ~/.bash_aliases .
+cp ~/.zshrc .
+cp -r ~/.zsh .
 
 cp ~/.config/libinput-gestures.conf .
 cp -r ~/.config/background .
-cp -r ~/.scripts/* ./scripts/
+cp -r ~/.scripts .
 cp ~/.Xmodmap .
