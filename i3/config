@@ -2,7 +2,6 @@ exec ~/.scripts/startup
 
 set $caps Mod1
 set $windows Mod4
-set $space Mod5
 
 font pango:monospace 9
 focus_follows_mouse no
@@ -10,29 +9,21 @@ focus_wrapping no
 
 new_window pixel 3
 
-# start a terminal
 bindsym $caps+backslash exec "st"
-
-# start chrome
 bindsym $caps+bracketright exec "google-chrome"
 
-# kill focused window
 bindsym $caps+w kill
 
-# start dmenu (a program launcher)
 bindsym $caps+d exec --no-startup-id i3-dmenu-desktop
 
-# change focus
 bindsym $caps+h focus left
 bindsym $caps+j focus down
 bindsym $caps+k focus up
 bindsym $caps+l focus right
 
-# split direction
-bindsym $caps+$space+backslash split h
-bindsym $caps+$space+minus split v
+bindsym $caps+backslash split h
+bindsym $caps+minus split v
 
-# switch to workspace
 bindsym $caps+1 workspace 1
 bindsym $caps+2 workspace 2
 bindsym $caps+3 workspace 3
@@ -44,23 +35,12 @@ bindsym $caps+8 workspace 8
 bindsym $caps+9 workspace 9
 bindsym $caps+0 workspace 10
 
-# move focused container to workspace
-bindsym $caps+$space+1 move container to workspace 1; workspace 1
-bindsym $caps+$space+2 move container to workspace 2; workspace 2
-bindsym $caps+$space+3 move container to workspace 3; workspace 3
-bindsym $caps+$space+4 move container to workspace 4; workspace 4
-bindsym $caps+$space+5 move container to workspace 5; workspace 5
-bindsym $caps+$space+6 move container to workspace 6; workspace 6
-bindsym $caps+$space+7 move container to workspace 7; workspace 7
-bindsym $caps+$space+8 move container to workspace 8; workspace 8
-bindsym $caps+$space+9 move container to workspace 9; workspace 9
-bindsym $caps+$space+0 move container to workspace 10 workspace 10
 
 # exit i3 (logs you out of your X session)
-bindsym $windows+$space+q exec "i3-nagbar -t warning -m 'Shutdown?' -b 'Shutdown' 'sudo shutdown now' -b 'Reboot' 'sudo reboot now'"
+bindsym $windows+q exec "i3-nagbar -t warning -m 'Shutdown?' -b 'Shutdown' 'sudo shutdown now' -b 'Reboot' 'sudo reboot now'"
 
 # lock the screen
-bindsym $windows+$space+l exec "i3lock-fancy -t '' -n"
+bindsym $windows+l exec "i3lock-fancy -t '' -n"
 
 # change brightness
 bindsym $windows+XF86MonBrightnessDown exec "sudo /home/ryan/.scripts/brightnessdown"
@@ -68,94 +48,44 @@ bindsym $windows+XF86MonBrightnessUp exec "sudo /home/ryan/.scripts/brightnessup
 
 
 
+bindsym $caps+m mode "move"
+mode "move" {
+  bindsym $caps+m mode "default"
 
+  bindsym $caps+1 move container to workspace 1; workspace 1; mode "default"
+  bindsym $caps+2 move container to workspace 2; workspace 2; mode "default"
+  bindsym $caps+3 move container to workspace 3; workspace 3; mode "default"
+  bindsym $caps+4 move container to workspace 4; workspace 4; mode "default"
+  bindsym $caps+5 move container to workspace 5; workspace 5; mode "default"
+  bindsym $caps+6 move container to workspace 6; workspace 6; mode "default"
+  bindsym $caps+7 move container to workspace 7; workspace 7; mode "default"
+  bindsym $caps+8 move container to workspace 8; workspace 8; mode "default"
+  bindsym $caps+9 move container to workspace 9; workspace 9; mode "default"
+  bindsym $caps+0 move container to workspace 10 workspace 10; mode "default"
+
+  bindsym $caps+h move left
+  bindsym $caps+j move down
+  bindsym $caps+k move up
+  bindsym $caps+l move right
+}
 
 
 bindsym $caps+r mode "resize"
 mode "resize" {
   bindsym $caps+r mode "default"
 
-  # start dmenu (a program launcher)
-  bindsym $caps+d exec --no-startup-id i3-dmenu-desktop
-
-  # start a terminal
-  bindsym $caps+backslash exec "st"
-
-  # start chrome
-  bindsym $caps+bracketright exec "google-chrome"
-
-  # kill focused window
-  bindsym $caps+w kill
-
-  # change focus
-  bindsym $caps+h focus left
-  bindsym $caps+j focus down
-  bindsym $caps+k focus up
-  bindsym $caps+l focus right
-
-  # move focused window
-  bindsym $caps+$space+h move left
-  bindsym $caps+$space+j move down
-  bindsym $caps+$space+k move up
-  bindsym $caps+$space+l move right
-
-  # switch to workspace
-  bindsym $caps+1 workspace 1
-  bindsym $caps+2 workspace 2
-  bindsym $caps+3 workspace 3
-  bindsym $caps+4 workspace 4
-  bindsym $caps+5 workspace 5
-  bindsym $caps+6 workspace 6
-  bindsym $caps+7 workspace 7
-  bindsym $caps+8 workspace 8
-  bindsym $caps+9 workspace 9
-  bindsym $caps+0 workspace 10
-
-  # move focused container to workspace
-  bindsym $caps+$space+1 move container to workspace 1; workspace 1
-  bindsym $caps+$space+2 move container to workspace 2; workspace 2
-  bindsym $caps+$space+3 move container to workspace 3; workspace 3
-  bindsym $caps+$space+4 move container to workspace 4; workspace 4
-  bindsym $caps+$space+5 move container to workspace 5; workspace 5
-  bindsym $caps+$space+6 move container to workspace 6; workspace 6
-  bindsym $caps+$space+7 move container to workspace 7; workspace 7
-  bindsym $caps+$space+8 move container to workspace 8; workspace 8
-  bindsym $caps+$space+9 move container to workspace 9; workspace 9
-  bindsym $caps+$space+0 move container to workspace 10 workspace 10
-
   # resize windows
-  bindsym $windows+h resize shrink width 2 px or 2 ppt
-  bindsym $windows+j resize shrink height 2 px or 2 ppt
-  bindsym $windows+k resize grow height 2 px or 2 ppt
-  bindsym $windows+l resize grow width 2 px or 2 ppt
-
-  # change container layout (stacked, tabbed, toggle split)
-  bindsym $caps+$space+s layout toggle split
-  bindsym $caps+$space+w layout stacking
-  bindsym $caps+$space+t layout tabbed
-
-  # split direction
-  bindsym $caps+$space+backslash split h
-  bindsym $caps+$space+minus split v
-
-  bindsym $caps+$space+i focus parent
-  bindsym $caps+$space+u focus child
-
-  # enter fullscreen mode for the focused container
-  bindsym $caps+f fullscreen
-
+  bindsym $caps+h resize shrink width 2 px or 2 ppt
+  bindsym $caps+j resize shrink height 2 px or 2 ppt
+  bindsym $caps+k resize grow height 2 px or 2 ppt
+  bindsym $caps+l resize grow width 2 px or 2 ppt
 }
 
 
 
-
-
-
-
-
-bindsym $caps+semicolon mode"external"
+bindsym $caps+space mode "external"
 mode "external"{
-  bindsym $caps+semicolon mode "default" 
+  bindsym $caps+space  mode "default" 
 }
 
 
