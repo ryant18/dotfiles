@@ -21,8 +21,7 @@ bindsym $caps+j focus down
 bindsym $caps+k focus up
 bindsym $caps+l focus right
 
-bindsym $caps+backslash split h
-bindsym $caps+minus split v
+bindsym $caps+minus split toggle
 
 bindsym $caps+1 workspace 1
 bindsym $caps+2 workspace 2
