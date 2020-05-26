@@ -61,7 +61,20 @@ vim .zinit/plugins/softmoth---zsh-vim-mode/zsh-vim-mode.plugin.zsh
 # comment out the if statement on line 497-500
 ```
 
-Install other linters as needed for ale
+neovim
+```
+https://github.com/neovim/neovim/releases Download appimage
+
+sudo cp ./nvim.appimage /usr/bin/nvim
+pip3 install pynvim --upgrade 
+
+Plug Install
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+:PlugInstall
+:CocInstall coc-python
+
+```
 
 ## Touchpad Gestures
 https://github.com/bulletmark/libinput-gestures

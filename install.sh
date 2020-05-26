@@ -6,6 +6,7 @@ cp -r ./background ~/.config/
 cp -r ./i3 ~/.config/
 cp -r ./i3status ~/.config/
 cp -r ./i3blocks ~/.config/
+cp -r ./nvim ~/.config/
 
 cp .vimrc ~
 cp -r ./.vim ~

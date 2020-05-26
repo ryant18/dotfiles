@@ -7,7 +7,6 @@ if has("mouse_sgr")
 else
     set ttymouse=xterm2
 end
-
 set number relativenumber
 set backspace=indent,eol,start
 set tabstop=2
@@ -15,47 +14,51 @@ set shiftwidth=2
 set expandtab
 set autoindent
 "set so=999
-
 set laststatus=2
 set showcmd
 set splitbelow
-
 set t_Co=256
 set completeopt-=preview
 color molokai
 
+highlight Comment cterm=bold
+
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+
+Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+
+Plugin 'ycm-core/YouCompleteMe'
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_confirm_extra_conf=0
 let g:ycm_show_diagnostics_ui = 0
 let g:ycm_key_list_select_completion = ['<TAB>']
 let g:ycm_key_list_previous_completion = ['<S-TAB>']
 let g:ycm_key_list_stop_completion = ['<C-y>', '<UP>', '<DOWN>']
+let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
 
-highlight Comment cterm=bold
 
-let g:AutoPairs={'(':')', '[':']', '{':'}', "'''":"'''"}
-
-let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
-autocmd VimEnter * RainbowParentheses
-
+Plugin 'dense-analysis/ale'
 let g:ale_fix_on_save = 1
 let g:ale_linters_explicit = 1
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+Plugin 'jiangmiao/auto-pairs'
+let g:AutoPairs={'(':')', '[':']', '{':'}', "'''":"'''"}
 
-Plugin 'VundleVim/Vundle.vim'
-Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
-Plugin 'ycm-core/YouCompleteMe'
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
 Plugin 'junegunn/fzf.vim'
 
-Plugin 'psliwka/vim-smoothie'
-Plugin 'dense-analysis/ale'
-Plugin 'jiangmiao/auto-pairs'
 Plugin 'junegunn/rainbow_parentheses.vim'
-Plugin 'Chiel92/vim-autoformat'
+let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
+autocmd VimEnter * RainbowParentheses
 
+
+Plugin 'psliwka/vim-smoothie'
+Plugin 'Chiel92/vim-autoformat'
 Plugin 'chrisbra/csv.vim'
 Plugin 'suan/vim-instant-markdown', {'rtp': 'after'}
 
