@@ -15,6 +15,7 @@ set splitbelow
 set t_Co=256
 set completeopt-=preview
 set shortmess+=c
+set signcolumn=yes
 color molokai 
 
 command W w
@@ -67,8 +68,7 @@ Plug 'jiangmiao/auto-pairs'
 let g:AutoPairs={'(':')', '[':']', '{':'}', "'''":"'''"}
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
+"autocmd CursorHold * silent call CocActionAsync('highlight')
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -87,6 +87,7 @@ nmap <silent> gr <Plug>(coc-references)
 
 Plug 'psliwka/vim-smoothie'
 Plug 'itchyny/lightline.vim'
+Plug 'tpope/vim-unimpaired'
 
 call plug#end()
 filetype plugin indent on
