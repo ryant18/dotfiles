@@ -10,7 +10,7 @@ ST_LINK="https://github.com/ryant18/st.git"
 /usr/lib/apt/apt-helper download-file $I3_LINK
 
 sudo dpkg -i ./keyring.deb
-sudo echo "deb https://debian.sur5r.net/i3/ $(grep '^DISTRIB_CODENAME=' /etc/lsb-release | cut -f2 -d=) universe" >> /etc/apt/sources.list.d/sur5r-i3.list
+echo "deb https://debian.sur5r.net/i3/ $(grep '^DISTRIB_CODENAME=' /etc/lsb-release | cut -f2 -d=) universe" | sudo tee -a /etc/apt/sources.list.d/sur5r-i3.list
 rm -f keyring.deb
 
 sudo apt update
