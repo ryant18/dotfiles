@@ -27,8 +27,7 @@ pip3 install pynvim --upgrade
 sudo apt-get -y install xdg-utils nodejs
 npm -g install instant-markdown-d
 
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 #nvim --headless +PlugInstall +q
 #nvim --headless +CocInstall coc-python +q
 
