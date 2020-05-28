@@ -4,52 +4,46 @@ I3_LINK="https://debian.sur5r.net/i3/pool/main/s/sur5r-keyring/sur5r-keyring_202
 NEOVIM_LINK="https://github.com/neovim/neovim/releases/download/v0.4.3/nvim.appimage"
 ST_LINK="https://github.com/ryant18/st.git"
 
+./install.sh
 
 #install i3
 /usr/lib/apt/apt-helper download-file $I3_LINK
 
-dpkg -i ./keyring.deb
-echo "deb https://debian.sur5r.net/i3/ $(grep '^DISTRIB_CODENAME=' /etc/lsb-release | cut -f2 -d=) universe" >> /etc/apt/sources.list.d/sur5r-i3.list
+sudo dpkg -i ./keyring.deb
+sudo echo "deb https://debian.sur5r.net/i3/ $(grep '^DISTRIB_CODENAME=' /etc/lsb-release | cut -f2 -d=) universe" >> /etc/apt/sources.list.d/sur5r-i3.list
 rm -f keyring.deb
 
-apt update
-apt -y install i3 i3blocks curl jq feh
+sudo apt update
+sudo apt -y install i3 i3blocks curl jq feh
 
 
 #install neovim
-apt-get -y install wget
+sudo apt-get -y install wget
 wget $NEOVIM_LINK
-chmod +x nvim.appimage 
-mv nvim.appimage /usr/bin/nvim
+sudo chmod +x nvim.appimage 
+sudo mv nvim.appimage /usr/bin/nvim
 pip3 install pynvim --upgrade
 
-apt-get -y install xdg-utils nodejs
+sudo apt-get -y install xdg-utils nodejs
 npm -g install instant-markdown-d
 
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-
-
-
+nvim --headless +PlugInstall +q
+nvim --headless +CocInstall coc-python +q
 
 #install st
 git clone $ST_LINK
 cd st
-apt-get -y install make
-make install
+sudo apt-get -y install make
+sudo make install
 cd ..
 rm -rf st
 
 #install zsh
-apt-get -y install zsh
-chsh -s /usr/bin/zsh
+sudo apt-get -y install zsh
+sudo chsh -s /usr/bin/zsh
 
-
-./install.sh
-
-
-nvim --headless +PlugInstall +q
-nvim --headless +CocInstall coc-python +q
-
+#install fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
