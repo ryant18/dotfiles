@@ -3,10 +3,13 @@
 I3_LINK="https://debian.sur5r.net/i3/pool/main/s/sur5r-keyring/sur5r-keyring_2020.02.03_all.deb keyring.deb SHA256:c5dd35231930e3c8d6a9d9539c846023fe1a08e4b073ef0d2833acd815d80d48"
 NEOVIM_LINK="https://github.com/neovim/neovim/releases/download/v0.4.3/nvim.appimage"
 ST_LINK="https://github.com/ryant18/st.git"
+NODEJS_LINK="https://nodejs.org/dist/v12.17.0/node-v12.17.0-linux-x64.tar.xz"
+DMENU_LINK="https://github.com/ryant18/dmenu.git"
 
 ./install.sh
 
 #install i3
+#need 4.18 for no wrap
 /usr/lib/apt/apt-helper download-file $I3_LINK
 
 sudo dpkg -i ./keyring.deb
@@ -18,14 +21,22 @@ sudo apt -y install i3 i3blocks curl jq feh
 
 
 #install neovim
+#need atleast 0.4 for coc features
 sudo apt-get -y install wget
 wget $NEOVIM_LINK
 sudo chmod +x nvim.appimage 
 sudo mv nvim.appimage /usr/bin/nvim
 pip3 install pynvim --upgrade
 
-sudo apt-get -y install xdg-utils nodejs
+sudo apt-get -y install xdg-utils npm
 npm -g install instant-markdown-d
+
+#Need node later than 12 for coc
+wget $NODEJS_LINK -O nodejs.tar
+tar xvf nodejs.tar
+sudo mv node-v12.17.0-linux-x64/bin/node /usr/bin/node 
+rm -rf node-v12.17.0-linux-x64
+
 
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 nvim --headless +PlugInstall +qall
@@ -39,9 +50,17 @@ sudo make install
 cd ..
 rm -rf st
 
+#install dmenu
+git clone $DMENU_LINK
+cd dmenu
+sudo apt-get -y install xorg-dev
+sudo make install
+cd ..
+rm -rf dmenu
+
 #install zsh
 sudo apt-get -y install zsh
-sudo chsh -s /usr/bin/zsh
+chsh -s /usr/bin/zsh
 
 #install fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
