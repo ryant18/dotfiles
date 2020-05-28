@@ -19,3 +19,5 @@ cp -r ./.zsh ~
 
 cp -r .scripts/ ~
 
+
+cp ~/.Xmodmap ~
