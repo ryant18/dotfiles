@@ -13,13 +13,24 @@ echo "deb https://debian.sur5r.net/i3/ $(grep '^DISTRIB_CODENAME=' /etc/lsb-rele
 rm -f keyring.deb
 
 apt update
-apt -y install i3 i3blocks
+apt -y install i3 i3blocks curl jq feh
 
 
 #install neovim
 apt-get -y install wget
 wget $NEOVIM_LINK
 mv nvim.appimage /usr/bin/nvim
+pip3 install pynvim --upgrade
+
+apt-get -y install xdg-utils nodejs
+npm -g install instant-markdown-d
+
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+nvim --headless +PlugInstall +q
+nvim --headless +CocInstall coc-python +q
+
+
 
 
 #install st
