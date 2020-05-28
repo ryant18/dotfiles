@@ -19,6 +19,7 @@ apt -y install i3 i3blocks curl jq feh
 #install neovim
 apt-get -y install wget
 wget $NEOVIM_LINK
+chmod +x nvim.appimage 
 mv nvim.appimage /usr/bin/nvim
 pip3 install pynvim --upgrade
 
@@ -34,6 +35,7 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 #install st
 git clone $ST_LINK
 cd st
+apt-get -y install make
 make install
 cd ..
 rm -rf st
