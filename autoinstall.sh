@@ -26,7 +26,7 @@ sudo apt-get -y install wget
 wget $NEOVIM_LINK
 sudo chmod +x nvim.appimage 
 sudo mv nvim.appimage /usr/bin/nvim
-sudo apt-get install python3-pip
+sudo apt-get -y install python3-pip
 pip3 install pynvim --upgrade
 
 sudo apt-get -y install xdg-utils npm nodejs
