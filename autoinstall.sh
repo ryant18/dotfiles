@@ -26,37 +26,33 @@ sudo apt-get -y install wget
 wget $NEOVIM_LINK
 sudo chmod +x nvim.appimage 
 sudo mv nvim.appimage /usr/bin/nvim
+sudo apt-get install python3-pip
 pip3 install pynvim --upgrade
+
+sudo apt-get -y install xdg-utils npm nodejs
+sudo npm -g install instant-markdown-d
 
 #Need node later than 12 for coc
 wget $NODEJS_LINK -O nodejs.tar
 tar xvf nodejs.tar
 sudo mv node-v12.17.0-linux-x64/bin/node /usr/bin/node 
-sudo mv node-v12.17.0-linux-x64/bin/npm /usr/bin/npm
-rm -rf node-v12.17.0-linux-x64
 
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 nvim --headless +PlugInstall +qall
 nvim --headless +CocInstall coc-python +qall
 
-sudo apt-get -y install xdg-utils npm
-sudo npm -g install instant-markdown-d
-
 #install st
 git clone $ST_LINK
 cd st
-sudo apt-get -y install make
+sudo apt-get -y install make xorg-dev
 sudo make install
 cd ..
-rm -rf st
 
 #install dmenu
 git clone $DMENU_LINK
 cd dmenu
-sudo apt-get -y install xorg-dev
 sudo make install
 cd ..
-rm -rf dmenu
 
 #install zsh
 sudo apt-get -y install zsh
@@ -67,6 +63,6 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
 #install virtual env
-sudo apt-get -y install python3-pip
-sudo pip3 install virtualenvwrapper
+sudo apt-get -y install python-pip
+sudo pip install virtualenvwrapper
 
