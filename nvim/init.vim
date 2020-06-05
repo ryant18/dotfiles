@@ -70,16 +70,16 @@ command Vsplit :call fzf#run({
     \})
 
 command Edit :call fzf#run({
-  \'source': 'find . -type f | awk ''!/.git\//'' | awk ''{print substr($1, 3);}''',
-  \'down': '30%',
-  \sink': 'edit'
-  \})
+    \'source': 'find . -type f | awk ''!/.git\//'' | awk ''{print substr($1, 3);}''',
+    \'down': '30%',
+    \sink': 'edit'
+    \})
 
 command Tab :call fzf#run({
-  \'source': 'find . -type f | awk ''!/.git\//'' | awk ''{print substr($1, 3);}''',
-  \'down': '30%',
-  \'sink': 'tabedit'
-  \})
+    \'source': 'find . -type f | awk ''!/.git\//'' | awk ''{print substr($1, 3);}''',
+    \'down': '30%',
+    \'sink': 'tabedit'
+    \})
 
 Plug 'junegunn/rainbow_parentheses.vim'
 let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}'], ['<', '>']]
