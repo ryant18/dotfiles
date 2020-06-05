@@ -14,6 +14,7 @@ set updatetime=100
 set splitbelow
 set t_Co=256
 set completeopt-=preview
+set noshowmode
 set shortmess+=c
 set signcolumn=yes
 color molokai 
@@ -26,25 +27,29 @@ imap kj <Esc>
 nnoremap <S-j> j<C-E>
 nnoremap <S-k> k<C-Y>
 
-nnoremap h :wincmd h<CR>
-nnoremap j :wincmd j<CR>
-nnoremap k :wincmd k<CR>
-nnoremap l :wincmd l<CR>
+nnoremap <silent> <A-h> :wincmd h<CR>
+nnoremap <silent> <A-j> :wincmd j<CR>
+nnoremap <silent> <A-k> :wincmd k<CR>
+nnoremap <silent> <A-l> :wincmd l<CR>
 
-nnoremap 1 1gt
-nnoremap 2 2gt
-nnoremap 3 3gt
-nnoremap 4 4gt
-nnoremap 5 5gt
-nnoremap 6 6gt
-nnoremap 7 7gt
-nnoremap 8 8gt
-nnoremap 9 9gt
-nnoremap 0 0gt
+inoremap <silent> <A-h> <ESC>:wincmd h<CR>
+inoremap <silent> <A-j> <ESC>:wincmd j<CR>
+inoremap <silent> <A-k> <ESC>:wincmd k<CR>
+inoremap <silent> <A-l> <ESC>:wincmd l<CR>
+
+noremap <silent> <A-h> :wincmd h<CR>
+nnoremap <A-1> 1gt
+nnoremap <A-2> 2gt
+nnoremap <A-3> 3gt
+nnoremap <A-4> 4gt
+nnoremap <A-5> 5gt
+nnoremap <A-6> 6gt
+nnoremap <A-7> 7gt
+nnoremap <A-8> 8gt
+nnoremap <A-9> 9gt
+nnoremap <A-0> 0gt
 
 set pastetoggle=<F3>
-
-
 
 call plug#begin('~/.config/nvim/plugins')
 
@@ -52,37 +57,56 @@ Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
 Plug 'junegunn/fzf.vim'
+
 command Split :call fzf#run({
+\   'source': 'find . -type f | awk ''{print substr($1, 3);}''',
 \   'down': '30%',
 \   'sink': 'botright split' })
 
 command Vsplit :call fzf#run({
+\   'source': 'ls -A',
 \   'down': '30%',
 \   'sink': 'vertical split' })
 
+command Edit :call fzf#run({
+\   'source': 'ls -A',
+\   'down': '30%',
+\   'sink': 'edit' })
+
 Plug 'junegunn/rainbow_parentheses.vim'
-let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
+let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}'], ['<', '>']]
 autocmd VimEnter * RainbowParentheses
 
 Plug 'jiangmiao/auto-pairs'
 let g:AutoPairs={'(':')', '[':']', '{':'}', "'''":"'''"}
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"autocmd CursorHold * silent call CocActionAsync('highlight')
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+Plug 'ycm-core/YouCompleteMe'
+let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_confirm_extra_conf=0
+let g:ycm_show_diagnostics_ui = 0
+let g:ycm_key_list_select_completion = ['<TAB>']
+let g:ycm_key_list_previous_completion = ['<S-TAB>']
+let g:ycm_key_list_stop_completion = ['<C-y>', '<UP>', '<DOWN>']
+let g:ycm_seed_identifiers_with_syntax = 0
+let g:ycm_collect_identifiers_from_tags_files = 1
 
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+""autocmd CursorHold * silent call CocActionAsync('highlight')
+"inoremap <silent><expr> <TAB>
+"      \ pumvisible() ? "\<C-n>" :
+"      \ <SID>check_back_space() ? "\<TAB>" :
+"      \ coc#refresh()
+"function! s:check_back_space() abort
+"    let col = col('.') - 1
+"    return !col || getline('.')[col - 1]  =~# '\s'
+"endfunction
+"inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+"
+"nmap <silent> gd <Plug>(coc-definition)
+"nmap <silent> gy <Plug>(coc-type-definition)
+"nmap <silent> gi <Plug>(coc-implementation)
+"nmap <silent> gr <Plug>(coc-references)
 
 
 Plug 'psliwka/vim-smoothie'
