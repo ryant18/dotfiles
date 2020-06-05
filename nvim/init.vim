@@ -17,7 +17,7 @@ set completeopt-=preview
 set noshowmode
 set shortmess+=c
 set signcolumn=yes
-color molokai 
+color molokai
 
 command W w
 
@@ -37,7 +37,6 @@ inoremap <silent> <A-j> <ESC>:wincmd j<CR>
 inoremap <silent> <A-k> <ESC>:wincmd k<CR>
 inoremap <silent> <A-l> <ESC>:wincmd l<CR>
 
-noremap <silent> <A-h> :wincmd h<CR>
 nnoremap <A-1> 1gt
 nnoremap <A-2> 2gt
 nnoremap <A-3> 3gt
@@ -59,26 +58,35 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
 Plug 'junegunn/fzf.vim'
 
 command Split :call fzf#run({
-\   'source': 'find . -type f | awk ''{print substr($1, 3);}''',
-\   'down': '30%',
-\   'sink': 'botright split' })
+    \'source': 'find . -type f | awk ''!/.git\//'' | awk ''{print substr($1, 3);}''',
+    \'down': '30%',
+    \'sink': 'botright split'
+    \})
 
 command Vsplit :call fzf#run({
-\   'source': 'ls -A',
-\   'down': '30%',
-\   'sink': 'vertical split' })
+    \'source': 'find . -type f | awk ''!/.git\//'' | awk ''{print substr($1, 3);}''',
+    \'down': '30%',
+    \'sink': 'vertical split'
+    \})
 
 command Edit :call fzf#run({
-\   'source': 'ls -A',
-\   'down': '30%',
-\   'sink': 'edit' })
+  \'source': 'find . -type f | awk ''!/.git\//'' | awk ''{print substr($1, 3);}''',
+  \'down': '30%',
+  \sink': 'edit'
+  \})
+
+command Tab :call fzf#run({
+  \'source': 'find . -type f | awk ''!/.git\//'' | awk ''{print substr($1, 3);}''',
+  \'down': '30%',
+  \'sink': 'tabedit'
+  \})
 
 Plug 'junegunn/rainbow_parentheses.vim'
 let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}'], ['<', '>']]
 autocmd VimEnter * RainbowParentheses
 
 Plug 'jiangmiao/auto-pairs'
-let g:AutoPairs={'(':')', '[':']', '{':'}', "'''":"'''"}
+let g:AutoPairs={'(':')', '[':']', '{':'}', '<':'>', "'''":"'''"}
 
 Plug 'ycm-core/YouCompleteMe'
 let g:ycm_autoclose_preview_window_after_completion=1
@@ -86,10 +94,20 @@ let g:ycm_confirm_extra_conf=0
 let g:ycm_show_diagnostics_ui = 0
 let g:ycm_key_list_select_completion = ['<TAB>']
 let g:ycm_key_list_previous_completion = ['<S-TAB>']
-let g:ycm_key_list_stop_completion = ['<C-y>', '<UP>', '<DOWN>']
+let g:ycm_key_list_stop_completion = ['<UP>', '<DOWN>']
 let g:ycm_seed_identifiers_with_syntax = 0
 let g:ycm_collect_identifiers_from_tags_files = 1
 
+Plug 'dense-analysis/ale'
+let g:ale_fix_on_save = 1
+let g:ale_linters_explicit = 1
+let g:ale_linters = {
+    \'python': ['bandit', 'mypy', 'flake8', 'vulture'],
+    \}
+let g:ale_fixers = {
+    \'*': ['remove_trailing_lines', 'trim_whitespace'],
+    \'python': ['yapf', 'isort', 'add_blank_lines_for_python_control_statements'],
+    \}
 
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
 ""autocmd CursorHold * silent call CocActionAsync('highlight')
