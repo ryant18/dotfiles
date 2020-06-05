@@ -33,13 +33,17 @@ sudo apt-get -y install xdg-utils npm nodejs
 sudo npm -g install instant-markdown-d
 
 #Need node later than 12 for coc
-wget $NODEJS_LINK -O nodejs.tar
-tar xvf nodejs.tar
-sudo mv node-v12.17.0-linux-x64/bin/node /usr/bin/node 
+#wget $NODEJS_LINK -O nodejs.tar
+#tar xvf nodejs.tar
+#sudo mv node-v12.17.0-linux-x64/bin/node /usr/bin/node 
 
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 nvim --headless +PlugInstall +qall
-nvim --headless +CocInstall coc-python +qall
+
+python3 ~/.config/nvim/plugins/YouCompleteMe/install.py --clangd-completer
+pip3 install bandit mypy flake8 vulture yapf isort
+#nvim --headless +CocInstall coc-python +qall
+
 
 #install st
 git clone $ST_LINK
