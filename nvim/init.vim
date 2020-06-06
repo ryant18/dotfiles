@@ -72,7 +72,7 @@ command Vsplit :call fzf#run({
 command Edit :call fzf#run({
     \'source': 'find . -type f | awk ''!/.git\//'' | awk ''{print substr($1, 3);}''',
     \'down': '30%',
-    \sink': 'edit'
+    \'sink': 'edit'
     \})
 
 command Tab :call fzf#run({

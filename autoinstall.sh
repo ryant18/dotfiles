@@ -24,7 +24,7 @@ sudo apt -y install i3 i3blocks curl jq feh
 #need atleast 0.4 for coc features
 sudo apt-get -y install wget
 wget $NEOVIM_LINK
-sudo chmod +x nvim.appimage 
+sudo chmod +x nvim.appimage
 sudo mv nvim.appimage /usr/bin/nvim
 sudo apt-get -y install python3-pip
 pip3 install pynvim --upgrade
@@ -35,12 +35,13 @@ sudo npm -g install instant-markdown-d
 #Need node later than 12 for coc
 #wget $NODEJS_LINK -O nodejs.tar
 #tar xvf nodejs.tar
-#sudo mv node-v12.17.0-linux-x64/bin/node /usr/bin/node 
+#sudo mv node-v12.17.0-linux-x64/bin/node /usr/bin/node
 
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 nvim --headless +PlugInstall +qall
 
 python3 ~/.config/nvim/plugins/YouCompleteMe/install.py --clangd-completer
+sudo apt-get install exuberant-ctags
 pip3 install bandit mypy flake8 vulture yapf isort
 #nvim --headless +CocInstall coc-python +qall
 
@@ -69,4 +70,3 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 #install virtual env
 sudo apt-get -y install python-pip
 sudo pip install virtualenvwrapper
-
