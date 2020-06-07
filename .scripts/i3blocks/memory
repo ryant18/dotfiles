@@ -29,10 +29,10 @@ fi
 val=(`cat $SAVE2`)
 
 MEMINFO=$(cat "/proc/meminfo")
-TOTAL=$(echo "$MEMINFO" | grep "^MemTotal:" | grep -oE '[0-9]+')
-FREE=$(echo "$MEMINFO" | grep "^MemFree:" | grep -oE '[0-9]+')
+TOTAL=$(free | grep "^Mem:" | awk '{print $2}')
+AVAILABLE=$(free | grep "^Mem:" | awk '{print $7}')
 
-percentusage=$(echo "scale=4; (($TOTAL - $FREE) / $TOTAL) * 100" | bc | xargs printf "%2.2f")
+percentusage=$(echo "scale=4; (($TOTAL - $AVAILABLE) / $TOTAL) * 100" | bc | xargs printf "%2.2f")
 usage=$(echo $percentusage | xargs printf "%.0f")
 
 if [[ $usage -ge 75 ]]

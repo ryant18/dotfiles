@@ -17,6 +17,8 @@ set completeopt-=preview
 set noshowmode
 set shortmess+=c
 set signcolumn=yes
+set ttimeout
+set ttimeoutlen=50
 color molokai
 
 command W w
