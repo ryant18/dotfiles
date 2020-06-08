@@ -10,30 +10,30 @@ focus_wrapping no
 
 new_window pixel 3
 
-bindsym $caps+$space+Return exec "st"
-bindsym $caps+$space+backslash exec "google-chrome"
+bindsym $caps+backslash exec "st"
+bindsym $caps+bracketright exec "google-chrome"
 
-bindsym $caps+$space+w kill
+bindsym $caps+w kill
 
-bindsym $caps+$space+d exec --no-startup-id i3-dmenu-desktop
+bindsym $caps+d exec --no-startup-id i3-dmenu-desktop
 
-bindsym $caps+$space+h focus left
-bindsym $caps+$space+j focus down
-bindsym $caps+$space+k focus up
-bindsym $caps+$space+l focus right
+bindsym $caps+h focus left
+bindsym $caps+j focus down
+bindsym $caps+k focus up
+bindsym $caps+l focus right
 
-bindsym $caps+$space+minus split toggle
+bindsym $caps+minus split toggle
 
-bindsym $caps+$space+1 workspace 1
-bindsym $caps+$space+2 workspace 2
-bindsym $caps+$space+3 workspace 3
-bindsym $caps+$space+4 workspace 4
-bindsym $caps+$space+5 workspace 5
-bindsym $caps+$space+6 workspace 6
-bindsym $caps+$space+7 workspace 7
-bindsym $caps+$space+8 workspace 8
-bindsym $caps+$space+9 workspace 9
-bindsym $caps+$space+0 workspace 10
+bindsym $caps+1 workspace 1
+bindsym $caps+2 workspace 2
+bindsym $caps+3 workspace 3
+bindsym $caps+4 workspace 4
+bindsym $caps+5 workspace 5
+bindsym $caps+6 workspace 6
+bindsym $caps+7 workspace 7
+bindsym $caps+8 workspace 8
+bindsym $caps+9 workspace 9
+bindsym $caps+0 workspace 10
 
 
 # exit i3 (logs you out of your X session)
@@ -48,38 +48,46 @@ bindsym $windows+XF86MonBrightnessUp exec "sudo /home/ryan/.scripts/brightnessup
 
 
 
-bindsym $caps+$space+m mode "move"
+bindsym $caps+m mode "move"
 mode "move" {
-  bindsym $space+Escape  mode "default"
+  bindsym $space+Escape mode "default"
 
-  bindsym $caps+$space+1 move container to workspace 1; workspace 1; mode "default"
-  bindsym $caps+$space+2 move container to workspace 2; workspace 2; mode "default"
-  bindsym $caps+$space+3 move container to workspace 3; workspace 3; mode "default"
-  bindsym $caps+$space+4 move container to workspace 4; workspace 4; mode "default"
-  bindsym $caps+$space+5 move container to workspace 5; workspace 5; mode "default"
-  bindsym $caps+$space+6 move container to workspace 6; workspace 6; mode "default"
-  bindsym $caps+$space+7 move container to workspace 7; workspace 7; mode "default"
-  bindsym $caps+$space+8 move container to workspace 8; workspace 8; mode "default"
-  bindsym $caps+$space+9 move container to workspace 9; workspace 9; mode "default"
-  bindsym $caps+$space+0 move container to workspace 10 workspace 10; mode "default"
+  bindsym $caps+1 move container to workspace 1; workspace 1; mode "default"
+  bindsym $caps+2 move container to workspace 2; workspace 2; mode "default"
+  bindsym $caps+3 move container to workspace 3; workspace 3; mode "default"
+  bindsym $caps+4 move container to workspace 4; workspace 4; mode "default"
+  bindsym $caps+5 move container to workspace 5; workspace 5; mode "default"
+  bindsym $caps+6 move container to workspace 6; workspace 6; mode "default"
+  bindsym $caps+7 move container to workspace 7; workspace 7; mode "default"
+  bindsym $caps+8 move container to workspace 8; workspace 8; mode "default"
+  bindsym $caps+9 move container to workspace 9; workspace 9; mode "default"
+  bindsym $caps+0 move container to workspace 10 workspace 10; mode "default"
 
-  bindsym $caps+$space+h move left
-  bindsym $caps+$space+j move down
-  bindsym $caps+$space+k move up
-  bindsym $caps+$space+l move right
+  bindsym $caps+h move left; mode "default"
+  bindsym $caps+j move down; mode "default"
+  bindsym $caps+k move up; mode "default"
+  bindsym $caps+l move right; mode "default"
 }
 
 
-bindsym $caps+$space+r mode "resize"
+bindsym $caps+r mode "resize"
 mode "resize" {
   bindsym $space+Escape mode "default"
 
   # resize windows
-  bindsym $caps+$space+h resize shrink width 2 px or 2 ppt
-  bindsym $caps+$space+j resize shrink height 2 px or 2 ppt
-  bindsym $caps+$space+k resize grow height 2 px or 2 ppt
-  bindsym $caps+$space+l resize grow width 2 px or 2 ppt
+  bindsym $caps+h resize shrink width 2 px or 2 ppt
+  bindsym $caps+j resize shrink height 2 px or 2 ppt
+  bindsym $caps+k resize grow height 2 px or 2 ppt
+  bindsym $caps+l resize grow width 2 px or 2 ppt
 }
+
+
+
+bindsym $caps+space mode "external"
+mode "external"{
+  bindsym $space+Escape mode "default"
+}
+
 
 bar {
         status_command i3blocks
