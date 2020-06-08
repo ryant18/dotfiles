@@ -1,7 +1,7 @@
 [spy]
 command=~/.scripts/i3blocks/stonks/ticker SPY GOOG
 markup=pango
-interval=5
+interval=30
 
 [text]
 command=echo "CPU"

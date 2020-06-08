@@ -15,6 +15,7 @@ cp ~/.inputrc .
 cp ~/.bash_aliases .
 cp ~/.zshrc .
 cp -r ~/.zsh .
+rm ./.zsh/.cwd
 
 cp ~/.config/libinput-gestures.conf .
 cp -r ~/.config/background .
