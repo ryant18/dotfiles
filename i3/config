@@ -50,7 +50,7 @@ bindsym $windows+XF86MonBrightnessUp exec "sudo /home/ryan/.scripts/brightnessup
 
 bindsym $caps+m mode "move"
 mode "move" {
-  bindsym $space+Escape mode "default"
+  bindsym $caps+Escape mode "default"
 
   bindsym $caps+1 move container to workspace 1; workspace 1; mode "default"
   bindsym $caps+2 move container to workspace 2; workspace 2; mode "default"
@@ -72,7 +72,7 @@ mode "move" {
 
 bindsym $caps+r mode "resize"
 mode "resize" {
-  bindsym $space+Escape mode "default"
+  bindsym $caps+Escape mode "default"
 
   # resize windows
   bindsym $caps+h resize shrink width 2 px or 2 ppt
@@ -85,7 +85,7 @@ mode "resize" {
 
 bindsym $caps+space mode "external"
 mode "external"{
-  bindsym $space+Escape mode "default"
+  bindsym $caps+Escape mode "default"
 }
 
 
