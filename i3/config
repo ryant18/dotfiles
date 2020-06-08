@@ -10,8 +10,8 @@ focus_wrapping no
 
 new_window pixel 3
 
-bindsym $caps+backslash exec "st"
-bindsym $caps+bracketright exec "google-chrome"
+bindsym $caps+Return exec "st"
+bindsym $caps+backslash exec "google-chrome"
 
 bindsym $caps+w kill
 
