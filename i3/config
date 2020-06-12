@@ -2,7 +2,7 @@ exec ~/.scripts/startup
 
 set $caps Mod1
 set $windows Mod4
-set $space Mod5
+#set $space Mod5
 
 font pango:monospace 9
 focus_follows_mouse no
@@ -61,7 +61,7 @@ mode "move" {
   bindsym $caps+7 move container to workspace 7; workspace 7; mode "default"
   bindsym $caps+8 move container to workspace 8; workspace 8; mode "default"
   bindsym $caps+9 move container to workspace 9; workspace 9; mode "default"
-  bindsym $caps+0 move container to workspace 10 workspace 10; mode "default"
+  bindsym $caps+0 move container to workspace 10; workspace 10; mode "default"
 
   bindsym $caps+h move left; mode "default"
   bindsym $caps+j move down; mode "default"
@@ -74,7 +74,6 @@ bindsym $caps+r mode "resize"
 mode "resize" {
   bindsym $caps+Escape mode "default"
 
-  # resize windows
   bindsym $caps+h resize shrink width 2 px or 2 ppt
   bindsym $caps+j resize shrink height 2 px or 2 ppt
   bindsym $caps+k resize grow height 2 px or 2 ppt
@@ -86,8 +85,26 @@ mode "resize" {
 bindsym $caps+space mode "external"
 mode "external"{
   bindsym $caps+Escape mode "default"
-}
 
+  bindsym --release h exec "xdotool getactivewindow key 'alt+h'; i3-msg mode default"
+  bindsym --release j exec "xdotool getactivewindow key 'alt+j'; i3-msg mode default"
+  bindsym --release k exec "xdotool getactivewindow key 'alt+k'; i3-msg mode default"
+  bindsym --release l exec "xdotool getactivewindow key 'alt+l'; i3-msg mode default"
+
+  bindsym --release w exec "xdotool getactivewindow key 'alt+w'; i3-msg mode default"
+
+  bindsym --release 1 exec "xdotool getactivewindow key 'alt+1'; i3-msg mode default"
+  bindsym --release 2 exec "xdotool getactivewindow key 'alt+2'; i3-msg mode default"
+  bindsym --release 3 exec "xdotool getactivewindow key 'alt+3'; i3-msg mode default"
+  bindsym --release 4 exec "xdotool getactivewindow key 'alt+4'; i3-msg mode default"
+  bindsym --release 5 exec "xdotool getactivewindow key 'alt+5'; i3-msg mode default"
+  bindsym --release 6 exec "xdotool getactivewindow key 'alt+6'; i3-msg mode default"
+  bindsym --release 7 exec "xdotool getactivewindow key 'alt+7'; i3-msg mode default"
+  bindsym --release 8 exec "xdotool getactivewindow key 'alt+8'; i3-msg mode default"
+  bindsym --release 9 exec "xdotool getactivewindow key 'alt+9'; i3-msg mode default"
+  bindsym --release 0 exec "xdotool getactivewindow key 'alt+0'; i3-msg mode default"
+
+}
 
 bar {
         status_command i3blocks

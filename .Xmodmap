@@ -1,5 +1,2 @@
 clear lock
 keycode 66 = 0xffe9
-
-clear mod5
-add mod5 = space
