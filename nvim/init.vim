@@ -19,7 +19,11 @@ set shortmess+=c
 set signcolumn=yes
 set ttimeout
 set ttimeoutlen=50
+
+
 color molokai
+let g:molokai_original = 1
+set background=dark
 
 command W w
 

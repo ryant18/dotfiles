@@ -52,21 +52,21 @@ bindsym $caps+m mode "move"
 mode "move" {
   bindsym $caps+Escape mode "default"
 
-  bindsym $caps+1 move container to workspace 1; workspace 1; mode "default"
-  bindsym $caps+2 move container to workspace 2; workspace 2; mode "default"
-  bindsym $caps+3 move container to workspace 3; workspace 3; mode "default"
-  bindsym $caps+4 move container to workspace 4; workspace 4; mode "default"
-  bindsym $caps+5 move container to workspace 5; workspace 5; mode "default"
-  bindsym $caps+6 move container to workspace 6; workspace 6; mode "default"
-  bindsym $caps+7 move container to workspace 7; workspace 7; mode "default"
-  bindsym $caps+8 move container to workspace 8; workspace 8; mode "default"
-  bindsym $caps+9 move container to workspace 9; workspace 9; mode "default"
-  bindsym $caps+0 move container to workspace 10; workspace 10; mode "default"
+  bindsym 1 move container to workspace 1; workspace 1; mode "default"
+  bindsym 2 move container to workspace 2; workspace 2; mode "default"
+  bindsym 3 move container to workspace 3; workspace 3; mode "default"
+  bindsym 4 move container to workspace 4; workspace 4; mode "default"
+  bindsym 5 move container to workspace 5; workspace 5; mode "default"
+  bindsym 6 move container to workspace 6; workspace 6; mode "default"
+  bindsym 7 move container to workspace 7; workspace 7; mode "default"
+  bindsym 8 move container to workspace 8; workspace 8; mode "default"
+  bindsym 9 move container to workspace 9; workspace 9; mode "default"
+  bindsym 0 move container to workspace 10; workspace 10; mode "default"
 
-  bindsym $caps+h move left; mode "default"
-  bindsym $caps+j move down; mode "default"
-  bindsym $caps+k move up; mode "default"
-  bindsym $caps+l move right; mode "default"
+  bindsym h move left; mode "default"
+  bindsym j move down; mode "default"
+  bindsym k move up; mode "default"
+  bindsym l move right; mode "default"
 }
 
 
@@ -74,10 +74,10 @@ bindsym $caps+r mode "resize"
 mode "resize" {
   bindsym $caps+Escape mode "default"
 
-  bindsym $caps+h resize shrink width 2 px or 2 ppt
-  bindsym $caps+j resize shrink height 2 px or 2 ppt
-  bindsym $caps+k resize grow height 2 px or 2 ppt
-  bindsym $caps+l resize grow width 2 px or 2 ppt
+  bindsym h resize shrink width 2 px or 2 ppt
+  bindsym j resize shrink height 2 px or 2 ppt
+  bindsym k resize grow height 2 px or 2 ppt
+  bindsym l resize grow width 2 px or 2 ppt
 }
 
 
