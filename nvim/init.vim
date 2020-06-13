@@ -1,24 +1,24 @@
 set nocompatible
 filetype off
-set clipboard=unnamedplus
-set mouse=a
-set number relativenumber
-set backspace=indent,eol,start
-set tabstop=2
-set shiftwidth=2
-set expandtab
 set autoindent
+set backspace=indent,eol,start
+set clipboard=unnamedplus
+set completeopt-=preview
+set expandtab
 set laststatus=2
+set mouse=a
+set noshowmode
+set number relativenumber
+set shiftwidth=2
+set shortmess+=c
 set showcmd
-set updatetime=100
+set signcolumn=yes
 set splitbelow
 set t_Co=256
-set completeopt-=preview
-set noshowmode
-set shortmess+=c
-set signcolumn=yes
+set tabstop=2
 set ttimeout
 set ttimeoutlen=50
+set updatetime=100
 
 
 color molokai
