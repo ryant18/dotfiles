@@ -46,7 +46,8 @@ bindsym $windows+l exec "i3lock-fancy -t '' -n"
 bindsym $windows+XF86MonBrightnessDown exec "sudo /home/ryan/.scripts/brightnessdown"
 bindsym $windows+XF86MonBrightnessUp exec "sudo /home/ryan/.scripts/brightnessup"
 
-
+bindsym XF86AudioLowerVolume exec "amixer -D pulse sset Master 2%-"
+bindsym XF86AudioRaiseVolume exec "amixer -D pulse sset Master 2%+"
 
 bindsym $caps+m mode "move"
 mode "move" {
