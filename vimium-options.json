@@ -4,10 +4,10 @@
   "filterLinkHints": false,
   "waitForEnterForFilteredHints": true,
   "hideHud": false,
-  "keyMappings": "unmapALL\n\nmap i enterInsertMode\nmap v enterVisualMode\nmap V enterVisualLineMode\n\nmap h scrollLeft\nmap j scrollDown\nmap k scrollUp\nmap l scrollRight\n\nmap r reload\n\nmap f LinkHints.activateMode\nmap F LinkHints.activateModeToOpenInNewTab\n\nmap m Marks.activateCreateMode\nmap ` Marks.activateGotoMode\n\nmap gg scrollToTop\nmap G scrollToBottom\n\nmap o Vomnibar.activate\nmap O Vomnibar.activateInNewTab\nmap b Vomnibar.activateBookmarks\nmap B Vomnibar.activateBookmarksInNewTab\nmap T Vomnibar.activateTabSelection\n\nmap / enterFindMode\nmap n performFind\nmap N performBackwardsFind\n\nmap <a-h> goBack\nmap <a-l> goForward\n\nmap <a-j> previousTab\nmap <a-k> nextTab\n\nmap <a-w> removeTab\nmap <a-W> restoreTab\nmap <a-n> moveTabToNewWindow",
-  "linkHintCharacters": "sadfjklewcmpgh",
+  "keyMappings": "unmapALL\n\nmap i enterInsertMode\nmap a enterInsertMode\nmap v enterVisualMode\nmap V enterVisualLineMode\n\nmap h previousTab\nmap j scrollDown\nmap k scrollUp\nmap l nextTab\n\nmap r reload\n\nmap f LinkHints.activateMode\nmap F LinkHints.activateModeToOpenInNewTab\n\nmap m Marks.activateCreateMode\nmap ` Marks.activateGotoMode\n\nmap gg scrollToTop\nmap G scrollToBottom\n\nmap o Vomnibar.activate\nmap O Vomnibar.activateInNewTab\nmap b Vomnibar.activateBookmarks\nmap B Vomnibar.activateBookmarksInNewTab\nmap T Vomnibar.activateTabSelection\n\nmap / enterFindMode\nmap n performFind\nmap N performBackwardsFind\n\nmap <a-h> goBack\nmap <a-l> goForward\n\nmap <a-w> removeTab\nmap <a-W> restoreTab\nmap <a-n> moveTabToNewWindow",
+  "linkHintCharacters": "asdfhjkl",
   "linkHintNumbers": "0123456789",
-  "newTabUrl": "about:newtab",
+  "newTabUrl": "google.com",
   "nextPatterns": "next,more,newer,>,›,→,»,≫,>>",
   "previousPatterns": "prev,previous,back,older,<,‹,←,«,≪,<<",
   "regexFindMode": true,
@@ -15,7 +15,7 @@
   "scrollStepSize": 60,
   "smoothScroll": true,
   "grabBackFocus": true,
-  "searchEngines": "w: https://www.wikipedia.org/w/index.php?title=Special:Search&search=%s Wikipedia\n\n# More examples.\n#\n# (Vimium supports search completion Wikipedia, as\n# above, and for these.)\n#\n# g: https://www.google.com/search?q=%s Google\n# l: https://www.google.com/search?q=%s&btnI I'm feeling lucky...\n# y: https://www.youtube.com/results?search_query=%s Youtube\n# gm: https://www.google.com/maps?q=%s Google maps\n# b: https://www.bing.com/search?q=%s Bing\n# d: https://duckduckgo.com/?q=%s DuckDuckGo\n# az: https://www.amazon.com/s/?field-keywords=%s Amazon\n# qw: https://www.qwant.com/?q=%s Qwant",
+  "searchEngines": "",
   "searchUrl": "https://www.google.com/search?q=",
   "userDefinedLinkHintCss": "div > .vimiumHintMarker {\n/* linkhint boxes */\nbackground: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFF785),\n  color-stop(100%,#FFC542));\nborder: 1px solid #E3BE23;\n}\n\ndiv > .vimiumHintMarker span {\n/* linkhint text */\ncolor: black;\nfont-weight: bold;\nfont-size: 12px;\n}\n\ndiv > .vimiumHintMarker > .matchingCharacter {\n}"
 }
