@@ -17,7 +17,7 @@ echo "deb https://debian.sur5r.net/i3/ $(grep '^DISTRIB_CODENAME=' /etc/lsb-rele
 rm -f keyring.deb
 
 sudo apt update
-sudo apt -y install i3 i3blocks curl jq feh
+sudo apt -y install i3 i3blocks curl jq feh xdotool
 
 
 #install neovim
