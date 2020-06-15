@@ -2,7 +2,14 @@ exec ~/.scripts/startup
 
 set $caps Mod1
 set $windows Mod4
-#set $space Mod5
+
+set $monitor_left "DP-4"
+set $monitor_center "DP-0"
+set $monitor_right "DP-2"
+
+workspace "5" output $monitor_left
+workspace "1" output $monitor_center
+workspace "2" output $monitor_right
 
 font pango:monospace 9
 focus_follows_mouse no
@@ -11,7 +18,7 @@ focus_wrapping no
 new_window pixel 3
 
 bindsym $caps+Return exec "st"
-bindsym $caps+backslash exec "google-chrome"
+bindsym $caps+backslash exec "google-chrome-stable --new-window google.com"
 
 bindsym $caps+w kill
 
@@ -92,7 +99,7 @@ mode "external"{
   bindsym --release k exec "xdotool getactivewindow key 'alt+k'; i3-msg mode default"
   bindsym --release l exec "xdotool getactivewindow key 'alt+l'; i3-msg mode default"
 
-  bindsym --release w exec "xdotool getactivewindow key 'alt+w'; i3-msg mode default"
+  bindsym --release w exec "xdotool key 'alt+w'; i3-msg mode default"
 
   bindsym --release 1 exec "xdotool getactivewindow key 'alt+1'; i3-msg mode default"
   bindsym --release 2 exec "xdotool getactivewindow key 'alt+2'; i3-msg mode default"
